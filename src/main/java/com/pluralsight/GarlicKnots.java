@@ -1,4 +1,8 @@
 package com.pluralsight;
 
-public class GarlicKnots {
+public class GarlicKnots extends Item{
+    public GarlicKnots(String size, double price) {
+        super(size, price);
+    }
+
 }

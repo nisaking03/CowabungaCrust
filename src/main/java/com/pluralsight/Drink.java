@@ -1,4 +1,16 @@
 package com.pluralsight;
 
-public class Drink {
+import javax.xml.namespace.QName;
+
+public class Drink extends Item{
+    private String flavor;
+
+    public Drink(String size, double price, String flavor) {
+        super(size, price);
+        this.flavor = flavor;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
 }
