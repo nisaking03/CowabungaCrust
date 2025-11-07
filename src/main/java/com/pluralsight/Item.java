@@ -17,6 +17,8 @@ public abstract class Item {
         return price;
     }
 
+    public abstract double calculatePrice();
+
     @Override
     public String toString() {
         return String.format("%s | $%.2f", size, price);

@@ -146,11 +146,11 @@ public class UserInterface {
 
         //Meat
 
-        ArrayList<String>Meats = ["bacon","ham"];
-
-        if(toppingPrompt.equalsIgnoreCase("meat")){
-            System.out.println(Meats);
-        }
+//        ArrayList<String>Meats = ["bacon","ham"];
+//
+//        if(toppingPrompt.equalsIgnoreCase("meat")){
+//            System.out.println(Meats);
+//        }
 
         String extrasPrompt = ConsoleHelper.promptForString("Would you like to add more?"); //todo boolean
         //§ Prompt for extra toppings: //list toppings already chosen

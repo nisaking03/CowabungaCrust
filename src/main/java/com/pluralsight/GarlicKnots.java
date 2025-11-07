@@ -5,4 +5,9 @@ public class GarlicKnots extends Item{
         super(size, price);
     }
 
+    @Override
+    public double calculatePrice() {
+        return 0;
+    }
+
 }

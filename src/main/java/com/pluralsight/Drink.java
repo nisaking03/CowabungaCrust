@@ -13,4 +13,9 @@ public class Drink extends Item{
     public String getFlavor() {
         return flavor;
     }
+
+    @Override
+    public double calculatePrice() {
+        return 0;
+    }
 }

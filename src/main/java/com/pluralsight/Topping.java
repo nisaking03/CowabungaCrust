@@ -1,10 +1,38 @@
 package com.pluralsight;
 
 public class Topping {
-    // -name: String
-    //        -price: double
-    //        -category: String
-    //        +getPrice(): double
-    //        +getName(): String
-    //        +getCategory(): String
+    private String name;
+    private String category;
+    private int extra;
+
+    // constructor with topping
+    public Topping(String name, String category, int extraCount) {
+        this.name = name;
+        this.category = category;
+        this.extra = extraCount;
+    }
+
+    // constructor without extra topping
+    public Topping(String name, String category) {
+        this(name, category, 0); // 0 marks no extras, just base portion
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public int getExtra() {
+        return extra;
+    }
+
+    @Override
+    public String toString() {
+        if (extra > 0) {
+            return name + " (" + category + ", extra x" + extra + ")";
+        } else {
+            return name + " (" + category + ")";
+        }
+    }
 }
