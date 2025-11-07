@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 public abstract class Item {
-    protected String size;
+    protected String size = "S, M, L";
     protected double price;
 
     public Item(String size, double price) {

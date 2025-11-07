@@ -2,7 +2,8 @@ package com.pluralsight;
 
 public class Main {
     public static void main(String[] args){
-
+        UserInterface ui = new UserInterface();
+        ui.display();
     }
 }
 
@@ -18,11 +19,9 @@ public class Main {
 //Customers can request for extra toppings, but premium toppings come at an
 // additional cost. Each pizza can have stuffed crust
 
-//A customer can place an order with 0 or more pizzas on the order. If a customer
-//places an order with 0 pizzas, they must purchase garlic knots or a drink.
+//TODO A customer can place an order with 0 or more pizzas on the order. If a customer
+//TODO places an order with 0 pizzas, they must purchase garlic knots or a drink.
 
-//When a customer places the order, they should be prompted to customize each
-//pizza one at a time.
 
 //A customer should also be able to add drinks and garlic knots to their order.
 
@@ -31,17 +30,6 @@ public class Main {
 //When the customer completes the order, the order details should be saved to a receipts folder.
 //Each order should have its own receipt file, and it should be named by the date and time that the order was placed
 //(yyyyMMdd-hhmmss.txt - i.e. 20230329-121523.txt)
-
-
-//todo ------Possible Classes/Interfaces-------
-//Pizza - Class
-//Crust - Interface
-//Toppings - Interface
-//Cheese - Interface
-//Sauce - Interface
-//Sides - Interface
-//Drink - Class
-//Garlic Knots - Class
 
 
 //todo -------Menu Layout-------
