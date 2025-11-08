@@ -2,39 +2,46 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
-public class Pizza extends Item{
-    //will all be arraylists
-    private String crustType; // thin, regular, thick, cauliflower
+
+public class Pizza extends Item {
+    private Crust crustType; // Now uses Crust object instead of String
     private ArrayList<Topping> toppingType; //includes sauces
 
-    public Pizza(String size, double price, String crustType, ArrayList<Topping> toppingType) {
+    public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType) {
         super(size, price);
         this.crustType = crustType;
         this.toppingType = new ArrayList<>();
     }
 
-    public String getCrustType() {
+    public Crust getCrust() {
         return crustType;
+    }
+
+    public void setCrust(Crust crust) {
+        this.crustType = crust;
     }
 
     public ArrayList<Topping> getToppingType() {
         return toppingType;
     }
+
     // Returns base price on each size
-    private static double getBasePrice(char size) {
+    private static double getBasePrice(String size) {
         switch (size) {
-            case 'S': return 8.50;
-            case 'M': return 12.00;
-            case 'L': return 16.50;
-            default: return 0;
+            case "S":
+                return 8.50;
+            case "M":
+                return 12.00;
+            case "L":
+                return 16.50;
+            default:
+                return 0;
         }
     }
-
 
     public void addTopping(Topping topping) {
         toppingType.add(topping);
     }
-
 
     //------------------All Calculations for Toppings + Crust
 
@@ -100,6 +107,10 @@ public class Pizza extends Item{
                     break;
             }
         }
+
+        // Add the crust extra cost (handles both crust type and stuffed crust pricing)
+        total += crustType.getExtra();
+
         return total;
     }
 
@@ -112,3 +123,5 @@ public class Pizza extends Item{
     }
 
 }
+
+
