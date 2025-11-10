@@ -32,4 +32,11 @@ public class ConsoleHelper {
         return result;
     }
 
+    public static boolean promptForBoolean(String prompt) {
+        System.out.print(prompt + ": ");
+        boolean result = sc.nextBoolean();
+        sc.nextLine();
+        return result;
+    }
+
 }

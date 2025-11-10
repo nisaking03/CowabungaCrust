@@ -26,7 +26,7 @@ public class Pizza extends Item {
     }
 
     // Returns base price on each size
-    private static double getBasePrice(String size) {
+    public static double getBasePrice(String size) {
         switch (size) {
             case "S":
                 return 8.50;
@@ -45,7 +45,7 @@ public class Pizza extends Item {
 
     //------------------All Calculations for Toppings + Crust
 
-    private double getMeatPrice(String size, int extraMeat) {
+    public double getMeatPrice(String size, int extraMeat) {
         double basePrice = 0;
         double extraPrice = 0;
 
@@ -68,7 +68,7 @@ public class Pizza extends Item {
         return basePrice + (extraPrice * extraMeat);
     }
 
-    private double getCheesePrice(String size, int extraCheese) {
+    public double getCheesePrice(String size, int extraCheese) {
         double basePrice = 0;
         double extraPrice = 0;
 
