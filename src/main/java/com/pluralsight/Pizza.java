@@ -96,7 +96,7 @@ public class Pizza extends Item {
         double total = price;
 
         for (Topping t : toppingType) {
-            String category = t.getCategory(); // meat, cheese, veggies, sauce
+            String category = t.getCategory(); // meat, cheese, reg toppings, sauce
 
             switch (category.toLowerCase()) {
                 case "meat":

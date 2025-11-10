@@ -14,7 +14,7 @@ public class Topping {
 
     // constructor without extra topping
     public Topping(String name, String category) {
-        this(name, category, 0); // 0 marks no extras, just base portion
+        this(name, category, 0); //No extras so it will be based price
     }
 
     public String getName() {
