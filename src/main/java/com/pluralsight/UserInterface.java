@@ -375,7 +375,10 @@ public class UserInterface {
     }
 
     private void checkout() {
-
+        if (order.isEmpty()) {
+            System.out.println("Your order is empty! Please add items before checking out.");
+            return;
+        }
     }
 }
 
