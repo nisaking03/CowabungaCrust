@@ -1,14 +1,12 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
-
 public class UserInterface {
 
     public void display() {
         //The application should continue to run until the user chooses to exit.
         System.out.println("Welcome to Cowabunga Crust");
         String mainMenu = """
-                    1) New Order" +
+                    1) New Order
                     0) Exit
                     """;
 
@@ -37,7 +35,8 @@ public class UserInterface {
                         2) Add Drink
                         3) Add Garlic Knots
                         4) Checkout
-                        0) Cancel Order - delete the order and go back to the home page\n""";
+                        0) Cancel Order - delete the order and go back to the home page
+                        """;
 
 
         while (true) {
@@ -68,7 +67,6 @@ public class UserInterface {
                         0) Back
                         """;
 
-        while (true) {
             System.out.print(pizzaMenu);
             int command = ConsoleHelper.promptForInt("Enter here"); //prompt for menu
 
@@ -79,7 +77,7 @@ public class UserInterface {
                 default -> System.out.println("Invalid Entry!"); //Error message
 
             }
-        }
+
     } //TODO
 
     private void buildPizza() {
@@ -126,8 +124,7 @@ public class UserInterface {
             default -> System.out.println("Invalid Entry!"); //Error message
         }
 
-        String stuffedCrustPrompt = "Would you like stuffed crust?"; //connect to pricing
-        System.out.println(stuffedCrustPrompt);
+        System.out.println("Would you like stuffed crust?");
         boolean stuffedCrust = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
 
 
@@ -141,7 +138,8 @@ public class UserInterface {
                 3) Ham
                 4) Bacon
                 5) Chicken
-                6) Meatball""";
+                6) Meatball
+                """;
 
         System.out.print(meatTopping);
         int meatPrompt = ConsoleHelper.promptForInt("Enter here");
@@ -168,8 +166,7 @@ public class UserInterface {
             default -> System.out.println("Invalid Entry!"); //Error message
         }
 
-        String extraMeatPrompt = "Would you like extra meat?"; //connect to pricing
-        System.out.println(extraMeatPrompt);
+        System.out.println("Would you like extra meat?");
         boolean extraMeat = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
         //calsulate meat price here
 
@@ -183,10 +180,34 @@ public class UserInterface {
                 2) Parmesan
                 3) Ricotta
                 4) Goat Cheese
-                5) Buffalo""";
+                5) Buffalo
+                """;
 
         System.out.print(cheeseTopping);
         int cheesePrompt = ConsoleHelper.promptForInt("Enter here");
+
+        switch (cheesePrompt) {
+            case 1 -> {
+                String cheese1 = ItemList.cheese[0];
+            }
+            case 2 -> {
+                String cheese2 = ItemList.cheese[1];
+            }
+            case 3 -> {
+                String cheese3 = ItemList.cheese[2];
+            }
+            case 4 -> {
+                String cheese4 = ItemList.cheese[3];
+            }
+            case 5 -> {
+                String cheese5 = ItemList.cheese[4];
+            }
+            default -> System.out.println("Invalid Entry!"); //Error message
+        }
+
+        System.out.println("Would you like extra cheese?");
+        boolean extraCheese = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
+        //calsulate meat price here
 
 
         //------------------------------------------------------------------
@@ -202,10 +223,43 @@ public class UserInterface {
                 6) Spinach
                 7) Basil
                 8) Pineapple
-                9) Anchovies""";
+                9) Anchovies
+                """;
 
         System.out.print(regTopping);
         int regTopPrompt = ConsoleHelper.promptForInt("Enter here");
+
+        switch (regTopPrompt) {
+            case 1 -> {
+                String reg1 = ItemList.regularToppings[0];
+            }
+            case 2 -> {
+                String reg2 = ItemList.regularToppings[1];
+            }
+            case 3 -> {
+                String reg3 = ItemList.regularToppings[2];
+            }
+            case 4 -> {
+                String reg4 = ItemList.regularToppings[3];
+            }
+            case 5 -> {
+                String reg5 = ItemList.regularToppings[4];
+            }
+            case 6 -> {
+                String reg6 = ItemList.regularToppings[5];
+            }
+            case 7 -> {
+                String reg7 = ItemList.regularToppings[6];
+            }
+            case 8 -> {
+                String reg8 = ItemList.regularToppings[7];
+            }
+            case 9 -> {
+                String reg9 = ItemList.regularToppings[8];
+            }
+            default -> System.out.println("Invalid Entry!"); //Error message
+        }
+        //add extra
 
 
         //-------------------------------------------------------------------
@@ -218,10 +272,34 @@ public class UserInterface {
                3) Pesto
                4) BBQ
                5) Buffalo
-               6) Olive Oil""";
+               6) Olive Oil
+               """;
 
         System.out.print(sauce);
         int saucePrompt = ConsoleHelper.promptForInt("Enter here");
+
+        switch (saucePrompt) {
+            case 1 -> {
+                String sauce1 = ItemList.sauces[0];
+            }
+            case 2 -> {
+                String sauce2 = ItemList.sauces[1];
+            }
+            case 3 -> {
+                String sauce3 = ItemList.sauces[2];
+            }
+            case 4 -> {
+                String sauce4 = ItemList.sauces[3];
+            }
+            case 5 -> {
+                String sauce5 = ItemList.sauces[4];
+            }
+            case 6 -> {
+                String sauce6 = ItemList.sauces[5];
+            }
+            default -> System.out.println("Invalid Entry!"); //Error message
+        }
+        //add extra
 
 
         //---------------------------------------------------------------------
@@ -248,63 +326,6 @@ public class UserInterface {
 //            }
 //        }
 
-//        String toppingPrompt = ConsoleHelper.promptForString("What toppings would you like");
-
-
-//        String extrasPrompt = ConsoleHelper.promptForString("Would you like to add more?"); //todo boolean
-//        //§ Prompt for extra toppings: //list toppings already chosen
-//        //§ Select sauces: //list sauces
-//        //o Would you like the pizza with stuffed crust? //todo boolean
-//        //TODO
-
-    }
-
-    //• Add Pizza - the add pizza screen will walk the user through several
-    //options to create the pizza
-    //o Select your type:
-    //o Pizza size:
-    //o Toppings: - the user should be able to add extras of each topping
-    //§ Meat:
-    //§ Cheese:
-    //§ Other toppings:
-    //§ Select sauces:
-    //o Would you like the pizza with stuffed crust?
-
-    private void displayToppingList() {
-        // Access the static array from ItemList.java
-        System.out.println("\n--- This is the real meat ---");
-
-        // for 6 meats we have, loop through them all and put thim into a
-        // seperate string called meat
-
-        // ------ MEATS
-        for (String meat : ItemList.meats) {
-            System.out.println(meat);
-        }
-
-        // ------ CHEESE
-        System.out.println("\n--- This is the real cheese ---");
-        for (String cheese : ItemList.cheese) {
-            System.out.println(cheese);
-        }
-
-        // ------ REG TOPS
-        System.out.println("\n--- This is the basic ahh toppings ---");
-        for (String regularToppings : ItemList.regularToppings) {
-            System.out.println(regularToppings);
-        }
-
-
-        // ------ SAUCES
-        System.out.println("\n--- IF it ain't marinara, get outta here ---");
-        for (String sauces : ItemList.sauces) {
-            System.out.println(sauces);
-        }
-
-
-
-        //run array list
-        return;
     }
 
     private void signaturePizza() {
@@ -332,12 +353,25 @@ public class UserInterface {
 
     //-----------------------------------------------------------------------------
 
-    private void addDrink() {
-
-    }
 
     private void addGarlicKnots() {
+        System.out.println("Would you like Garlic Knots?");
+        boolean garlicKnotPrompt = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
+        String garlicCountPrompt = """
+                        What count would you like?
+                        1) 16 count
+                        2) 32 count
+                        """;
+    }
 
+    private void addDrink() {
+        String drinkPrompt = """
+                        1) Add Pizza
+                        2) Add Drink
+                        3) Add Garlic Knots
+                        4) Checkout
+                        0) Cancel Order - delete the order and go back to the home page
+                        """;
     }
 
     private void checkout() {
