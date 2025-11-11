@@ -1,8 +1,12 @@
-package com.pluralsight;
+package com.pluralsight.userinterface;
+import com.pluralsight.data.ItemList;
+import com.pluralsight.data.Order;
+import com.pluralsight.models.Crust;
+import com.pluralsight.models.Pizza;
+import com.pluralsight.models.Sauce;
+import com.pluralsight.models.Topping;
 
 import java.util.ArrayList;
-
-import static com.pluralsight.ItemList.crust;
 
 public class UserInterface {
 
@@ -15,7 +19,6 @@ public class UserInterface {
                 1) New Order
                 0) Exit
                 """;
-
 
         while (true) {
             System.out.print(mainMenu);
@@ -46,7 +49,6 @@ public class UserInterface {
                 0) Cancel Order - delete the order and go back to the home page
                 """;
 
-
         while (true) {
             System.out.print(orderMenu);
             int command = ConsoleHelper.promptForInt("Enter here"); //prompt for menu
@@ -74,8 +76,6 @@ public class UserInterface {
         }
     }
 
-    //-----------------------------------------------------------------------------
-
     private void addPizza() {
         String pizzaMenu = """
                 
@@ -94,14 +94,12 @@ public class UserInterface {
                 return;
             }
             default -> System.out.println("Invalid Entry!"); //Error message
-
         }
-
-    } //TODO
+    }
 
     private void buildPizza() {
         //Prompts to customize pizza
-         Pizza pizza = new Pizza();
+        Pizza pizza = new Pizza();
 
         String buildPizzaMenu = """
                 
@@ -112,7 +110,7 @@ public class UserInterface {
                 0) All done!
                 """;
 
-        while(true) {
+        while (true) {
             System.out.println(buildPizzaMenu);
             int command = ConsoleHelper.promptForInt("Enter here");
 
@@ -140,21 +138,19 @@ public class UserInterface {
     }
 
     private String getPizzaSize() {
-        //Has the size prompt
         String sizePrompt = """
                 
                 Enter a size:
                  S - 8.50
                  M - 12.00
                  L - 16.50
-                """; //connect to pricing
+                """;
+
         System.out.print(sizePrompt);
         String size = ConsoleHelper.promptForString("Enter here");
 
         if (size.equalsIgnoreCase("S") || size.equalsIgnoreCase("M") || size.equalsIgnoreCase("L")) {
             return size.toUpperCase();
-        } else if (size.equals("0")) {
-            return null;
         } else {
             System.out.println("Invalid size! Please try again.");
             return getPizzaSize();
@@ -196,7 +192,7 @@ public class UserInterface {
         }
 
         // NOW ask about stuffed crust
-        System.out.println("Would you like stuffed crust? (+$2.50)");
+        System.out.println("\nWould you like stuffed crust? (+$2.50)");
         boolean stuffedCrust = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
 
         if (stuffedCrust) {
@@ -224,12 +220,12 @@ public class UserInterface {
         System.out.print(meatTopping);
         int meatPrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (meatPrompt >= 1 && meatPrompt <= 6) {
+        if (meatPrompt >= 1 && meatPrompt <= 5) {
             // Get meat name from array (subtract 1 because arrays start from 0)
             String meatName = ItemList.meats[meatPrompt - 1];
 
             // Ask if they want extra
-            boolean extraMeat = ConsoleHelper.promptForString("Would you like extra meat? (Y/N)").equalsIgnoreCase("y");
+            boolean extraMeat = ConsoleHelper.promptForString("\nWould you like extra meat? (Y/N)").equalsIgnoreCase("y");
 
             // If yes, set extras to 1, if no set to 0
             int extraCount = extraMeat ? 1 : 0;
@@ -237,6 +233,7 @@ public class UserInterface {
             // Create topping object with extras
             Topping meatTopping2 = new Topping(meatName, "meat", extraCount);
             toppings.add(meatTopping2);
+
         } else if (meatPrompt == 0) {
             return null;
         }
@@ -256,12 +253,12 @@ public class UserInterface {
         System.out.print(cheeseTopping);
         int cheesePrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (cheesePrompt >= 1 && cheesePrompt <= 5) {
+        if (cheesePrompt >= 1 && cheesePrompt <= 4) {
             // Get cheese name from array (subtract 1 because arrays start from 0)
             String cheeseName = ItemList.cheese[cheesePrompt - 1];
 
             // Ask if they want extra
-            boolean extraCheese = ConsoleHelper.promptForString("Would you like extra cheese? (Y/N)").equalsIgnoreCase("y");
+            boolean extraCheese = ConsoleHelper.promptForString("\nWould you like extra cheese? (Y/N)").equalsIgnoreCase("y");
 
             // If yes, set extras to 1, if no set to 0
             int extraCount = extraCheese ? 1 : 0;
@@ -269,6 +266,7 @@ public class UserInterface {
             // Create topping object with extras count
             Topping cheeseTopping2 = new Topping(cheeseName, "cheese", extraCount);
             toppings.add(cheeseTopping2); // Add to toppings list
+
         } else if (cheesePrompt == 0) {
             return null;
         }
@@ -292,19 +290,19 @@ public class UserInterface {
         System.out.print(regTopping);
         int regTopPrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (regTopPrompt >= 1 && regTopPrompt <= 9) {
+        if (regTopPrompt >= 1 && regTopPrompt <= 8) {
             String regToppingName = ItemList.regularToppings[regTopPrompt - 1];
             Topping regularTopping = new Topping(regToppingName, "regular");
             toppings.add(regularTopping);
 
-            return toppings;
-        } else {
+        } else if (regTopPrompt == 0) {
             return null;
         }
+        return toppings;
     }
 
     private String getSauce() {
-        String sauce = """
+        String saucePrompt = """
                 
                 What sauce? (Free)
                 1) Marinara
@@ -316,34 +314,28 @@ public class UserInterface {
                 0) None
                 """;
 
-        System.out.print(sauce);
-        int saucePrompt = ConsoleHelper.promptForInt("Enter here");
+        System.out.print(saucePrompt);
+        int choice = ConsoleHelper.promptForInt("Enter here");
 
-        switch (saucePrompt) {
-            case 1 -> {
-                String sauce1 = ItemList.sauces[0];
-            }
-            case 2 -> {
-                String sauce2 = ItemList.sauces[1];
-            }
-            case 3 -> {
-                String sauce3 = ItemList.sauces[2];
-            }
-            case 4 -> {
-                String sauce4 = ItemList.sauces[3];
-            }
-            case 5 -> {
-                String sauce5 = ItemList.sauces[4];
-            }
-            case 6 -> {
-                String sauce6 = ItemList.sauces[5];
-            }
-            case 0 -> {
-                return null;
-            }
-            default -> System.out.println("Invalid Entry!"); //Error message
+            Sauce sauce = null;
+
+        switch (choice) {
+            case 1:
+                sauce = new Sauce("Thin", 0.00);
+                break;
+            case 2:
+                sauce = new Sauce("Regular", 0.00);
+                break;
+            case 3:
+                sauce = new Sauce("Thick", 0.00);
+                break;
+            case 4:
+                sauce = new Sauce("Cauliflower", 0.00);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+                return getSauceType();
         }
-        return sauce;
     }
 
 

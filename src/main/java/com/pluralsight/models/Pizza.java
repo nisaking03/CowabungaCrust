@@ -1,18 +1,17 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
 import java.util.ArrayList;
-
 
 public class Pizza extends Item {
     public Crust crustType; // Now uses Crust object instead of String
     public ArrayList<Topping> toppingType;
-    public String sauce;
+    public Sauce sauceType;
 
-    public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType) {
+    public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType, Sauce sauceType) {
         super(size, price);
         this.crustType = crustType;
         this.toppingType = toppingType;
-        this.sauce = sauce;
+        this.sauceType = sauceType;
     }
 
     public Pizza(){};
@@ -29,12 +28,12 @@ public class Pizza extends Item {
         return toppingType;
     }
 
-    public String getSauce() {
-        return sauce;
+    public Sauce getSauceType() {
+        return sauceType;
     }
 
-    public void setSauce(String sauce) {
-        this.sauce = sauce;
+    public void setSauceType(Sauce sauce) {
+        this.sauceType = sauce;
     }
 
     // Returns base price on each size
@@ -126,12 +125,18 @@ public class Pizza extends Item {
         return total;
     }
 
+//    public String listAllToppings(){
+//        for(Topping t : toppingType){t.getName();}
+//        return "";
+//    }
+
     @Override
     public String toString() {
-        return "Pizza - " +
-                size + "| " +
-                crustType +
-                "| Toppings: " + toppingType;
+        return "Pizza - Size: " +
+                size + " |  Crust: " +
+                crustType + " | Sauce: " +
+                sauceType +
+                " | Toppings: " + toppingType.toString();
     }
 
 }

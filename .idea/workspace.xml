@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d280385c-5cd3-4b4a-a81b-972fcd3ba5e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ConsoleHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/userinterface/ConsoleHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Crust.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Crust.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/GarlicKnots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/GarlicKnots.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ItemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/data/ItemList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/data/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ReceiptManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/data/ReceiptManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/SignaturePizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/SignaturePizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Topping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/userinterface/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
