@@ -10,7 +10,7 @@ public class Pizza extends Item {
     public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType) {
         super(size, price);
         this.crustType = crustType;
-        this.toppingType = new ArrayList<>();
+        this.toppingType = toppingType;
     }
 
     public Crust getCrust() {

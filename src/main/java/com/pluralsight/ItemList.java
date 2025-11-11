@@ -22,9 +22,6 @@ public class ItemList {
     public static final String[] sauces = {"Marinara", "Alfredo", "Pesto", "BBQ", "Buffalo", "Olive Oil"
     };
 
-    public static final String[] sides = {"Red Pepper", "Parmesan"
-    };
-
     // Other products (garlic knots, drinks)
     public static final String[] garlicKnots = {"16", "32"
     };

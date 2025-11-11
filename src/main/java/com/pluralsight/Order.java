@@ -5,13 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-
-    //List of order items
     private List<Item> items;
     private LocalDateTime date;
 
-
-    //CONSTRUCTOR
     public Order(List<Item> items, LocalDateTime date) {
         this.items = items;
         this.date = date;
@@ -22,9 +18,6 @@ public class Order {
         this.date = LocalDateTime.now();
     }
 
-
-
-    //GETTERS AND SETTERS
         public List<Item> getItems() {
         return items;
     }
@@ -51,19 +44,17 @@ public class Order {
         return items.stream().mapToDouble(items -> items.getPrice()).sum();
     }
 
-    //VALID ORDER?
+    //Sees if it is a valid order
     public boolean isValidOrder(){
 
-        //boolean variable that checks if our List of items has a instanceof a Pizza
+        //checks if our List of items has an instanceof a Pizza
         boolean hasPizza = items.stream().anyMatch(item -> item instanceof Pizza);
-            boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
+        boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
         boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
 
         //If statements that will determine if our order has a sandwich or not.
         if(hasPizza){
-
             return true;
-
         } else if (hasGarlicKnots || hasDrink) {
             return true;
         }else {
@@ -75,8 +66,5 @@ public class Order {
     @Override
     public String toString() {
         return "DATE & TIME: " + date + "|" +"\n" + "Items purchased: " + items + "|";
-
-
     }
-
 }
