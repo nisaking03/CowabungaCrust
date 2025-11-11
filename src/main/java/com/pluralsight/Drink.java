@@ -14,7 +14,7 @@ public class Drink extends Item{
 
     @Override
     public double calculatePrice() {
-        return 0;
+        return price;
     }
 }
 //Display drink size options

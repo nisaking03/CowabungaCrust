@@ -5,9 +5,20 @@ public class GarlicKnots extends Item{
         super(size, price);
     }
 
+    public static double getGarlicKnotPrice(String size) {
+        switch (size) {
+            case "16":
+                return 1.50;
+            case "32":
+                return 3.00;
+            default:
+                return 0;
+        }
+    }
+
     @Override
     public double calculatePrice() {
-        return 0;
+        return price;
     }
 
 }

@@ -304,27 +304,7 @@ public class UserInterface {
 
         //---------------------------------------------------------------------
 
-//        boolean running = true;
-//        while (running) {
-//            System.out.print("Would you like to list toppings?");
-//            char command;
-//            command = ConsoleHelper.promptForChar(" (Y/N)"); //prompt for menu
-//
-//            switch (command) {
-//                case 'Y':
-//                    displayToppingList();
-//                    running = false;
-//                    //turn into array list
-//                    break;
-//                case 'N':
-//                    running = false;
-//                    break;
-//                default:
-//                    System.out.println("Invalid Entry!"); //Error message
-//                    break;
-//
-//            }
-//        }
+
 
     }
 
@@ -356,12 +336,51 @@ public class UserInterface {
 
     private void addGarlicKnots() {
         System.out.println("Would you like Garlic Knots?");
-        boolean garlicKnotPrompt = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
+
+        boolean running = true;
+        while (running) {
+            System.out.print("Would you like Garlic Knots?");
+            char command;
+            command = ConsoleHelper.promptForChar("Enter here (Y/N)"); //prompt for menu
+
+            switch (command) {
+                case 'Y':
+                    displayGarlicKnot();
+                    running = false;
+                    break;
+                case 'N':
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid Entry!"); //Error message
+                    break;
+
+            }
+        }
+    }
+
+    private void displayGarlicKnot(){
         String garlicCountPrompt = """
                         What count would you like?
                         1) 16 count
                         2) 32 count
+                        0) Back
                         """;
+
+        System.out.print(garlicCountPrompt);
+        int garlicPrompt = ConsoleHelper.promptForInt("Enter here");
+
+        switch (garlicPrompt) {
+            case 1 -> {
+                String sauce1 = ItemList.garlicKnots[0];
+            }
+            case 2 -> {
+                String sauce2 = ItemList.garlicKnots[1];
+            }
+            case 0 -> {
+                return;
+            }
+            default -> System.out.println("Invalid Entry!");
     }
 
     private void addDrink() {
