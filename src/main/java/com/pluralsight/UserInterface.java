@@ -95,56 +95,40 @@ public class UserInterface {
         //Prompts to customize pizza
 //        Pizza pizza = new Pizza("",0,"", "");
 
-
-
-        String sauce = """
+        String buildPizzaMenu = """
                 
-                What sauce? (Free)
-                1) Marinara
-                2) Alfredo
-                3) Pesto
-                4) BBQ
-                5) Buffalo
-                6) Olive Oil
-                0) None
+                1) Choose your size
+                2) Choose your crust
+                3) Choose your toppings
+                4) Choose your sauce
+                0) Back
                 """;
 
-        System.out.print(sauce);
-        int saucePrompt = ConsoleHelper.promptForInt("Enter here");
+        System.out.println(buildPizzaMenu);
+        int command = ConsoleHelper.promptForInt("Enter here");
 
-        switch (saucePrompt) {
-            case 1 -> {
-                String sauce1 = ItemList.sauces[0];
+
+        switch (command) {
+            case 1 -> getPizzaSize();
+            case 2 -> getCrustType();
+            case 3 -> getToppings();
+            case 4 -> getSauce();
+            case 0 -> {
+                return;
             }
-            case 2 -> {
-                String sauce2 = ItemList.sauces[1];
-            }
-            case 3 -> {
-                String sauce3 = ItemList.sauces[2];
-            }
-            case 4 -> {
-                String sauce4 = ItemList.sauces[3];
-            }
-            case 5 -> {
-                String sauce5 = ItemList.sauces[4];
-            }
-            case 6 -> {
-                String sauce6 = ItemList.sauces[5];
-            }
-            case 0 -> {return;}
-            default -> System.out.println("Invalid Entry!"); //Error message
+            default -> System.out.println("Invalid Entry!");
         }
     }
 
     private String getPizzaSize() {
-         //Has the size prompt
-         String sizePrompt = """
-
-                        Enter a size:
-                         S - 8.50
-                         M - 12.00
-                         L - 16.50
-                        """; //connect to pricing
+        //Has the size prompt
+        String sizePrompt = """
+                
+                Enter a size:
+                 S - 8.50
+                 M - 12.00
+                 L - 16.50
+                """; //connect to pricing
         System.out.print(sizePrompt);
         String size = ConsoleHelper.promptForString("Enter here");
 
@@ -160,14 +144,14 @@ public class UserInterface {
 
     private Crust getCrustType() {
         // Has the crust prompt
-         String crustPrompt = """
-
-                        What crust type
-                         1) Thin
-                         2) Regular
-                         3) Thick
-                         4) Cauliflower
-                        """;
+        String crustPrompt = """
+                
+                What crust type
+                 1) Thin
+                 2) Regular
+                 3) Thick
+                 4) Cauliflower
+                """;
 
         System.out.print(crustPrompt);
         int choice = ConsoleHelper.promptForInt("Enter here");
@@ -234,7 +218,7 @@ public class UserInterface {
             // Create topping object with extras
             Topping meatTopping2 = new Topping(meatName, "meat", extraCount);
             toppings.add(meatTopping2);
-        }else if (meatPrompt == 0) {
+        } else if (meatPrompt == 0) {
             return null;
         }
 
@@ -266,7 +250,7 @@ public class UserInterface {
             // Create topping object with extras count
             Topping cheeseTopping2 = new Topping(cheeseName, "cheese", extraCount);
             toppings.add(cheeseTopping2); // Add to toppings list
-        }else if (cheesePrompt == 0) {
+        } else if (cheesePrompt == 0) {
             return null;
         }
 
@@ -293,11 +277,56 @@ public class UserInterface {
             String regToppingName = ItemList.regularToppings[regTopPrompt - 1];
             Topping regularTopping = new Topping(regToppingName, "regular");
             toppings.add(regularTopping);
+
+            return toppings;
+        } else {
+            return null;
         }
-        return toppings;
     }
 
-    //-----------------------------------------------------------------------------
+    private String getSauce() {
+        String sauce = """
+                
+                What sauce? (Free)
+                1) Marinara
+                2) Alfredo
+                3) Pesto
+                4) BBQ
+                5) Buffalo
+                6) Olive Oil
+                0) None
+                """;
+
+        System.out.print(sauce);
+        int saucePrompt = ConsoleHelper.promptForInt("Enter here");
+
+        switch (saucePrompt) {
+            case 1 -> {
+                String sauce1 = ItemList.sauces[0];
+            }
+            case 2 -> {
+                String sauce2 = ItemList.sauces[1];
+            }
+            case 3 -> {
+                String sauce3 = ItemList.sauces[2];
+            }
+            case 4 -> {
+                String sauce4 = ItemList.sauces[3];
+            }
+            case 5 -> {
+                String sauce5 = ItemList.sauces[4];
+            }
+            case 6 -> {
+                String sauce6 = ItemList.sauces[5];
+            }
+            case 0 -> {
+                return null;
+            }
+            default -> System.out.println("Invalid Entry!"); //Error message
+        }
+        return sauce;
+    }
+
 
     private void signaturePizza() {
         //Lists pizza's
