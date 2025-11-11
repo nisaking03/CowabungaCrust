@@ -1,20 +1,30 @@
 package com.pluralsight;
 
 public abstract class Item {
-    protected String size = "S, M, L";
-    protected double price;
+    public String size;
+    public double price;
 
     public Item(String size, double price) {
         this.size = size;
         this.price = price;
     }
 
+    public Item(){};
+
     public String getSize() {
         return size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public abstract double calculatePrice();

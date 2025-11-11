@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Item> items;
+    public List<Item> items;
     private LocalDateTime date;
 
     public Order(List<Item> items, LocalDateTime date) {

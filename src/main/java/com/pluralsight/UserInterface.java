@@ -52,15 +52,23 @@ public class UserInterface {
             int command = ConsoleHelper.promptForInt("Enter here"); //prompt for menu
 
             switch (command) {
-                case 1 -> addPizza();
-                case 2 -> addDrink();
-                case 3 -> addGarlicKnots();
-                case 4 -> checkout();
-                case 0 -> {
+                case 1:
+                    addPizza();
+                    break;
+                case 2:
+                    addDrink();
+                    break;
+                case 3:
+                    addGarlicKnots();
+                    break;
+                case 4:
+                    checkout();
+                    break;
+                case 0:
                     System.out.println("Peace out!"); //exit
                     return;
-                }
-                default -> System.out.println("Invalid Entry!"); //Error message
+                default:
+                    System.out.println("Invalid Entry!"); //Error message
 
             }
         }
@@ -93,7 +101,7 @@ public class UserInterface {
 
     private void buildPizza() {
         //Prompts to customize pizza
-//        Pizza pizza = new Pizza("",0,"", "");
+         Pizza pizza = new Pizza();
 
         String buildPizzaMenu = """
                 
@@ -101,22 +109,33 @@ public class UserInterface {
                 2) Choose your crust
                 3) Choose your toppings
                 4) Choose your sauce
-                0) Back
+                0) All done!
                 """;
 
-        System.out.println(buildPizzaMenu);
-        int command = ConsoleHelper.promptForInt("Enter here");
+        while(true) {
+            System.out.println(buildPizzaMenu);
+            int command = ConsoleHelper.promptForInt("Enter here");
 
-
-        switch (command) {
-            case 1 -> getPizzaSize();
-            case 2 -> getCrustType();
-            case 3 -> getToppings();
-            case 4 -> getSauce();
-            case 0 -> {
-                return;
+            switch (command) {
+                case 1:
+                    pizza.size = getPizzaSize();
+                    break;
+                case 2:
+                    pizza.crustType = getCrustType();
+                    break;
+                case 3:
+                    pizza.toppingType = getToppings();
+                    break;
+                case 4:
+                    pizza.sauce = getSauce();
+                    break;
+                case 0:
+                    currentOrder.items.add(pizza);
+                    System.out.println(currentOrder.getItems().get(0));
+                    return;
+                default:
+                    System.out.println("Invalid Entry!");
             }
-            default -> System.out.println("Invalid Entry!");
         }
     }
 

@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 
 public class Pizza extends Item {
-    private Crust crustType; // Now uses Crust object instead of String
-    private ArrayList<Topping> toppingType; //includes sauces
+    public Crust crustType; // Now uses Crust object instead of String
+    public ArrayList<Topping> toppingType;
+    public String sauce;
 
     public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType) {
         super(size, price);
         this.crustType = crustType;
         this.toppingType = toppingType;
+        this.sauce = sauce;
     }
+
+    public Pizza(){};
 
     public Crust getCrust() {
         return crustType;
@@ -23,6 +27,14 @@ public class Pizza extends Item {
 
     public ArrayList<Topping> getToppingType() {
         return toppingType;
+    }
+
+    public String getSauce() {
+        return sauce;
+    }
+
+    public void setSauce(String sauce) {
+        this.sauce = sauce;
     }
 
     // Returns base price on each size
