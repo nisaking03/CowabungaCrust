@@ -57,14 +57,14 @@ public class Order {
         boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
         boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
 
-        //If statements that will determine if our order has a sandwich or not.
+        //If statements that will determine if our order has a pizza or not.
         if(hasPizza){
             return true;
         } else if (hasGarlicKnots || hasDrink) {
             return true;
         }else {
             return false;
-            //add chips or drink
+            //add garlic knots or drink
         }
     }
 

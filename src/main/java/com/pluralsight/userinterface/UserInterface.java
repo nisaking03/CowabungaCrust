@@ -1,10 +1,7 @@
 package com.pluralsight.userinterface;
 import com.pluralsight.data.ItemList;
 import com.pluralsight.data.Order;
-import com.pluralsight.models.Crust;
-import com.pluralsight.models.Pizza;
-import com.pluralsight.models.Sauce;
-import com.pluralsight.models.Topping;
+import com.pluralsight.models.*;
 
 import java.util.ArrayList;
 
@@ -117,6 +114,10 @@ public class UserInterface {
             switch (command) {
                 case 1:
                     pizza.size = getPizzaSize();
+                    // Set base price after selecting size
+                    if (pizza.size != null) {
+                        pizza.price = Pizza.getBasePrice(pizza.size);
+                    }
                     break;
                 case 2:
                     pizza.crustType = getCrustType();
@@ -125,12 +126,18 @@ public class UserInterface {
                     pizza.toppingType = getToppings();
                     break;
                 case 4:
-                    pizza.sauce = getSauce();
+                    pizza.sauceType = getSauce();
                     break;
                 case 0:
-                    currentOrder.items.add(pizza);
-                    System.out.println(currentOrder.getItems().get(0));
-                    return;
+                    // Check if pizza is complete before adding
+                    if (pizza.size != null && pizza.crustType != null && pizza.sauceType != null) {
+                        currentOrder.addItem(pizza);
+                        System.out.println("Pizza added to order!");
+                        return;
+                    } else {
+                        System.out.println("\nPlease select size, crust, and sauce before finishing!");
+                    }
+                    break;
                 default:
                     System.out.println("Invalid Entry!");
             }
@@ -298,11 +305,12 @@ public class UserInterface {
         } else if (regTopPrompt == 0) {
             return null;
         }
+
         return toppings;
     }
 
-    private String getSauce() {
-        String saucePrompt = """
+    private Sauce getSauce() {
+        String sauceList = """
                 
                 What sauce? (Free)
                 1) Marinara
@@ -314,28 +322,35 @@ public class UserInterface {
                 0) None
                 """;
 
-        System.out.print(saucePrompt);
+        System.out.print(sauceList);
         int choice = ConsoleHelper.promptForInt("Enter here");
 
-            Sauce sauce = null;
+        Sauce sauce = null;
 
         switch (choice) {
             case 1:
-                sauce = new Sauce("Thin", 0.00);
+                sauce = new Sauce("Marinara", 0.00);
                 break;
             case 2:
-                sauce = new Sauce("Regular", 0.00);
+                sauce = new Sauce("Alfredo", 0.00);
                 break;
             case 3:
-                sauce = new Sauce("Thick", 0.00);
+                sauce = new Sauce("Pesto", 0.00);
                 break;
             case 4:
-                sauce = new Sauce("Cauliflower", 0.00);
+                sauce = new Sauce("BBQ", 0.00);
+                break;
+            case 5:
+                sauce = new Sauce("Buffalo", 0.00);
+                break;
+            case 6:
+                sauce = new Sauce("Olive Oil", 0.00);
                 break;
             default:
                 System.out.println("Invalid choice!");
-                return getSauceType();
+                return getSauce();
         }
+        return sauce;
     }
 
 
@@ -362,31 +377,6 @@ public class UserInterface {
         //o Would you like the pizza with stuffed crust? //todo boolean
     } //TODO
 
-    //-----------------------------------------------------------------------------
-
-
-//    private void addGarlicKnots() {
-//        boolean running = true;
-//        while (running) {
-//            System.out.print("Would you like Garlic Knots?\n");
-//            char command;
-//            command = ConsoleHelper.promptForChar("\nEnter here (Y/N)"); //prompt for menu
-//
-//            switch (command) {
-//                case 'Y':
-//                    displayGarlicKnot();
-//                    running = false;
-//                    break;
-//                case 'N':
-//                    running = false;
-//                    break;
-//                default:
-//                    System.out.println("Invalid Entry!"); //Error message
-//                    break;
-//
-//            }
-//        }
-//    }
 
     private void addGarlicKnots() {
         String garlicCountPrompt = """
@@ -401,52 +391,129 @@ public class UserInterface {
         int garlicPrompt = ConsoleHelper.promptForInt("Enter here");
 
         switch (garlicPrompt) {
-            case 1 -> {
-                String sauce1 = ItemList.garlicKnots[0];
+            case 1: {
+                // Actually create the object and add to order
+                String size = ItemList.garlicKnots[0];  // "16"
+                double price = GarlicKnots.getGarlicKnotPrice(size);
+                GarlicKnots knots = new GarlicKnots(size, price);
+                currentOrder.addItem(knots);
+                System.out.println("Garlic knots (16 count) added to order!");
+                break;
             }
-            case 2 -> {
-                String sauce2 = ItemList.garlicKnots[1];
+            case 2: {
+                // Actually create the object and add to order
+                String size = ItemList.garlicKnots[1];  // "32"
+                double price = GarlicKnots.getGarlicKnotPrice(size);
+                GarlicKnots knots = new GarlicKnots(size, price);
+                currentOrder.addItem(knots);
+                System.out.println("Garlic knots (32 count) added to order!");
+                break;
             }
-            case 0 -> {
+            case 0: {
                 return;
             }
-            default -> System.out.println("Invalid Entry!");
+            default:
+                System.out.println("Invalid Entry!");
         }
     }
 
     private void addDrink() {
-        String drinkPrompt = """
-                
-                1) Add Pizza
-                2) Add Drink
-                3) Add Garlic Knots
-                4) Checkout
-                0) Cancel Order - delete the order and go back to the home page
-                """;
+        // Prompt for drink size first
+        String drinkSizePrompt = """
+            
+            What size?
+            S - $2.00
+            M - $2.50
+            L - $3.00
+            0) Back
+            """;
+
+        System.out.print(drinkSizePrompt);
+        String sizeChoice = ConsoleHelper.promptForString("Enter here");
+
+        String drinkSize;
+
+        if (sizeChoice.equalsIgnoreCase("S") || sizeChoice.equalsIgnoreCase("M") ||
+                sizeChoice.equalsIgnoreCase("L")) {
+            drinkSize = sizeChoice.toUpperCase();
+
+        } else if (sizeChoice.equalsIgnoreCase("0")) {
+            return;
+
+        } else {
+            System.out.println("Invalid choice!");
+            addDrink();
+            return;
+        }
+
+        // Now show flavor options
+        String flavorPrompt = """
+            
+            What flavor?
+            1) Coke
+            2) Pepsi
+            3) Sprite
+            4) Fanta
+            5) Dr Pepper
+            6) Lemonade
+            7) Iced Tea
+            8) Water
+            0) Back
+            """;
+
+        System.out.print(flavorPrompt);
+        int flavorChoice = ConsoleHelper.promptForInt("Enter here");
+
+        if (flavorChoice < 1 || flavorChoice > ItemList.drinkFlavors.length) {
+            if (flavorChoice == 0) {
+                return;
+            }
+            System.out.println("Invalid choice!");
+            addDrink();
+            return;
+        }
+
+        String drinkFlavor = ItemList.drinkFlavors[flavorChoice - 1];
+        Drink drink = new Drink(drinkSize, Drink.getDrinkPrice(drinkSize), drinkFlavor);
+
+        currentOrder.addItem(drink);
+        System.out.println("Drink added to order!");
+
+        currentOrder.addItem(drink);
+        System.out.println("Drink added to order!");
     }
+
 
     private void checkout() {
-//        if (currentOrder.isEmpty()) {
-//            System.out.println("Your order is empty! Please add items before checking out.");
-//            return;
-//        }
+        if (!currentOrder.isValidOrder()) {
+            System.out.println("Invalid order! You must have at least a pizza, or garlic knots/drink.");
+            return;
+        }
+
+        // Display order summary
+        System.out.println("\n========== ORDER SUMMARY ==========" +
+                "\nDate/Time: " + currentOrder.getDate());
+        System.out.println("\nItems:");
+
+        for (int i = 0; i < currentOrder.getItems().size(); i++) {
+            System.out.println((i + 1) + ") " + currentOrder.getItems().get(i));
+        }
+
+        double total = currentOrder.calculateTotal();
+        System.out.println(
+                "\n-----------------------------------" +
+                "\nTotal: $" + String.format("%.2f", total) +
+                "\n===================================\n");
+
+        // Ask for confirmation
+        String confirm = ConsoleHelper.promptForString("Confirm order? (Y/N)");
+
+        if (confirm.equalsIgnoreCase("y")) {
+            System.out.println("Order confirmed!");
+            // TODO: ReceiptManager.saveReceipt(currentOrder);
+            System.out.println("Receipt saved. Returning to home screen...\n");
+        } else {
+            System.out.println("Order cancelled. Returning to order menu...\n");
+        }
     }
 }
-
-
-//When a customer places the order, they should be prompted to customize each
-//pizza one at a time.
-
-//A customer should also be able to add drinks and garlic knots to their order.
-
-//Application should display the order details, including the list of pizzas that were ordered with all the toppings
-//The screen should also display the total cost of the order.
-//When the customer completes the order, the order details should be saved to a receipts folder.
-//Each order should have its own receipt file, and it should be named by the date and time that the order was placed
-//(yyyyMMdd-hhmmss.txt - i.e. 20230329-121523.txt)
-
-
-
-
-
-//Toppings(collection) -> arraylist<Cheese>, arrayList<Meat>, arrayList<>

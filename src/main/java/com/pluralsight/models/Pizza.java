@@ -10,7 +10,8 @@ public class Pizza extends Item {
     public Pizza(String size, double price, Crust crustType, ArrayList<Topping> toppingType, Sauce sauceType) {
         super(size, price);
         this.crustType = crustType;
-        this.toppingType = toppingType;
+//        this.toppingType = toppingType;
+        this.toppingType = new ArrayList<>();
         this.sauceType = sauceType;
     }
 
@@ -124,11 +125,6 @@ public class Pizza extends Item {
 
         return total;
     }
-
-//    public String listAllToppings(){
-//        for(Topping t : toppingType){t.getName();}
-//        return "";
-//    }
 
     @Override
     public String toString() {

@@ -20,5 +20,4 @@ public class GarlicKnots extends Item {
     public double calculatePrice() {
         return price;
     }
-
 }

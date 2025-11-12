@@ -8,6 +8,19 @@ public class Drink extends Item {
         this.flavor = flavor;
     }
 
+    public static double getDrinkPrice(String size) {
+        switch (size) {
+            case "S":
+                return 2.00;
+            case "M":
+                return 2.50;
+            case "L":
+                return 3.00;
+            default:
+                return 0;
+        }
+    }
+
     public String getFlavor() {
         return flavor;
     }

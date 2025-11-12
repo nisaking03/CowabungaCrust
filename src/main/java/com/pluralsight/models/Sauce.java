@@ -6,7 +6,7 @@ public class Sauce {
 
     public Sauce(String name, double saucePrice) {
         this.sauceName = name;
-        this.sauceName = sauceName;
+        this.saucePrice = saucePrice;
     }
 
     public String getSauceName() {
