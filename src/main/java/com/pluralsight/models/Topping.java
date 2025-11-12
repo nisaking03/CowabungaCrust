@@ -5,14 +5,14 @@ public class Topping {
     private String category;
     private int extra;
 
-    // constructor with topping
+    // Constructor with topping
     public Topping(String name, String category, int extraCount) {
         this.name = name;
         this.category = category;
         this.extra = extraCount;
     }
 
-    // constructor without extra topping
+    // Constructor without extra topping
     public Topping(String name, String category) {
         this(name, category, 0); //No extras so it will be based price
     }

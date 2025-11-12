@@ -20,4 +20,9 @@ public class GarlicKnots extends Item {
     public double calculatePrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Garlic Knots - Count: " + size + " | $" + String.format("%.2f", price);
+    }
 }

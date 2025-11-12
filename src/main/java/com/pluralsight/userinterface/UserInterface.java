@@ -6,11 +6,17 @@ import java.util.ArrayList;
 
 public class UserInterface {
 
-    private Order currentOrder;
+    public static Order currentOrder;
 
     public void display() {
         //The application should continue to run until the user chooses to exit.
-        System.out.println("Welcome to Cowabunga Crust");
+        System.out.println("""
+                ╭ ──────┉─────── • ─────┉────── ╮
+                   𝕎𝕖𝕝𝕔𝕠𝕞𝕖 𝕥𝕠 ℂ𝕠𝕨𝕒𝕓𝕦𝕟𝕘𝕒 ℂ𝕣𝕦𝕤𝕥!
+                ╰ ──────┉─────¡! • !¡─────┉─────╯
+                """);
+
+
         String mainMenu = """
                 1) New Order
                 0) Exit
@@ -21,15 +27,9 @@ public class UserInterface {
             int command = ConsoleHelper.promptForInt("Enter here"); //prompt for menu
 
             switch (command) {
-                case 1:
-                    newOrder();
-                    break;
-                case 0: //exit
-                    System.exit(0); // Force closes program
-                default:
-                    System.out.println("Invalid Entry!"); //Error message
-                    break;
-
+                case 1 -> newOrder();
+                case 0 -> System.exit(0); // Force closes program
+                default -> System.out.println("Invalid Entry!"); //Error message
             }
         }
     }
@@ -50,24 +50,15 @@ public class UserInterface {
             int command = ConsoleHelper.promptForInt("Enter here"); //prompt for menu
 
             switch (command) {
-                case 1:
-                    addPizza();
-                    break;
-                case 2:
-                    addDrink();
-                    break;
-                case 3:
-                    addGarlicKnots();
-                    break;
-                case 4:
-                    checkout();
-                    break;
-                case 0:
+                case 1 -> addPizza();
+                case 2 -> addDrink();
+                case 3 -> addGarlicKnots();
+                case 4 -> checkout();
+                case 0 -> {
                     System.out.println("Peace out!"); //exit
                     return;
-                default:
-                    System.out.println("Invalid Entry!"); //Error message
-
+                }
+                default -> System.out.println("Invalid Entry!"); //Error message
             }
         }
     }
@@ -86,9 +77,7 @@ public class UserInterface {
         switch (command) {
             case 1 -> buildPizza();
             case 2 -> signaturePizza();
-            case 0 -> {
-                return;
-            }
+            case 0 -> {return;}
             default -> System.out.println("Invalid Entry!"); //Error message
         }
     }
@@ -111,34 +100,24 @@ public class UserInterface {
             int command = ConsoleHelper.promptForInt("Enter here");
 
             switch (command) {
-                case 1:
+                case 1 -> {
                     pizza.size = getPizzaSize();
                     // Set base price after selecting size
                     if (pizza.size != null) {
                         pizza.price = Pizza.getBasePrice(pizza.size);
                     }
-                    break;
-                case 2:
-                    pizza.crustType = getCrustType();
-                    break;
-                case 3:
-                    pizza.toppingType = getToppings();
-                    break;
-                case 4:
-                    pizza.sauceType = getSauce();
-                    break;
-                case 0:
-                    // Check if pizza is complete before adding
+                }
+                case 2 -> pizza.crustType = getCrustType();
+                case 3 -> pizza.toppingType = getToppings();
+                case 4 -> pizza.sauceType = getSauce();
+                case 0 -> {
                     if (pizza.size != null && pizza.crustType != null && pizza.sauceType != null) {
-                        currentOrder.addItem(pizza);
-                        System.out.println("Pizza added to order!");
-                        return;
-                    } else {
+                        currentOrder.addItem(pizza);System.out.println("Pizza added to order!");return;
+                    } else{
                         System.out.println("\nPlease select size, crust, and sauce before finishing!");
                     }
-                    break;
-                default:
-                    System.out.println("Invalid Entry!");
+                }
+                default -> System.out.println("Invalid Entry!");
             }
         }
     }
@@ -180,21 +159,14 @@ public class UserInterface {
         Crust crust = null;
 
         switch (choice) {
-            case 1:
-                crust = new Crust("Thin", false, 0.00);
-                break;
-            case 2:
-                crust = new Crust("Regular", false, 0.00);
-                break;
-            case 3:
-                crust = new Crust("Thick", false, 0.00);
-                break;
-            case 4:
-                crust = new Crust("Cauliflower", false, 0.00);
-                break;
-            default:
+            case 1 -> crust = new Crust("Thin", false, 0.00);
+            case 2 -> crust = new Crust("Regular", false, 0.00);
+            case 3 -> crust = new Crust("Thick", false, 0.00);
+            case 4 -> crust = new Crust("Cauliflower", false, 0.00);
+            default -> {
                 System.out.println("Invalid choice!");
                 return getCrustType();
+            }
         }
 
         // NOW ask about stuffed crust
@@ -253,7 +225,6 @@ public class UserInterface {
                 3) Ricotta
                 4) Goat Cheese
                 5) Buffalo
-                0) None
                 """;
 
         System.out.print(cheeseTopping);
@@ -318,7 +289,6 @@ public class UserInterface {
                 4) BBQ
                 5) Buffalo
                 6) Olive Oil
-                0) None
                 """;
 
         System.out.print(sauceList);
@@ -327,27 +297,16 @@ public class UserInterface {
         Sauce sauce = null;
 
         switch (choice) {
-            case 1:
-                sauce = new Sauce("Marinara", 0.00);
-                break;
-            case 2:
-                sauce = new Sauce("Alfredo", 0.00);
-                break;
-            case 3:
-                sauce = new Sauce("Pesto", 0.00);
-                break;
-            case 4:
-                sauce = new Sauce("BBQ", 0.00);
-                break;
-            case 5:
-                sauce = new Sauce("Buffalo", 0.00);
-                break;
-            case 6:
-                sauce = new Sauce("Olive Oil", 0.00);
-                break;
-            default:
-                System.out.println("Invalid choice!");
+            case 1 -> sauce = new Sauce("Marinara", 0.00);
+            case 2 -> sauce = new Sauce("Alfredo", 0.00);
+            case 3 -> sauce = new Sauce("Pesto", 0.00);
+            case 4 -> sauce = new Sauce("BBQ", 0.00);
+            case 5 -> sauce = new Sauce("Buffalo", 0.00);
+            case 6 -> sauce = new Sauce("Olive Oil", 0.00);
+            default -> {
+                System.out.println("\nInvalid choice!");
                 return getSauce();
+            }
         }
         return sauce;
     }
@@ -388,29 +347,30 @@ public class UserInterface {
         int garlicPrompt = ConsoleHelper.promptForInt("Enter here");
 
         switch (garlicPrompt) {
-            case 1: {
+            case 1 -> {
                 // Actually create the object and add to order
                 String size = ItemList.garlicKnots[0];  // "16"
                 double price = GarlicKnots.getGarlicKnotPrice(size);
+
                 GarlicKnots knots = new GarlicKnots(size, price);
                 currentOrder.addItem(knots);
-                System.out.println("Garlic knots (16 count) added to order!");
-                break;
+
+                System.out.println("\nGarlic knots (16 count) added to order!");
             }
-            case 2: {
+            case 2 -> {
                 // Actually create the object and add to order
                 String size = ItemList.garlicKnots[1];  // "32"
                 double price = GarlicKnots.getGarlicKnotPrice(size);
+
                 GarlicKnots knots = new GarlicKnots(size, price);
                 currentOrder.addItem(knots);
-                System.out.println("Garlic knots (32 count) added to order!");
-                break;
+
+                System.out.println("\nGarlic knots (32 count) added to order!");
             }
-            case 0: {
+            case 0 -> {
                 return;
             }
-            default:
-                System.out.println("Invalid Entry!");
+            default -> System.out.println("\nInvalid Entry!");
         }
     }
 
@@ -438,7 +398,7 @@ public class UserInterface {
             return;
 
         } else {
-            System.out.println("Invalid choice!");
+            System.out.println("\nInvalid choice!");
             addDrink();
             return;
         }
@@ -465,7 +425,7 @@ public class UserInterface {
             if (flavorChoice == 0) {
                 return;
             }
-            System.out.println("Invalid choice!");
+            System.out.println("\nInvalid choice!");
             addDrink();
             return;
         }
@@ -474,18 +434,20 @@ public class UserInterface {
         Drink drink = new Drink(drinkSize, Drink.getDrinkPrice(drinkSize), drinkFlavor);
 
         currentOrder.addItem(drink);
-        System.out.println("Drink added to order!");
+        System.out.println("\nDrink added to order!");
     }
 
     private void checkout() {
         if (!currentOrder.isValidOrder()) {
-            System.out.println("Invalid order! You must have at least a pizza, or garlic knots/drink.");
+            System.out.println("\nInvalid order! You must have at least a pizza, or garlic knots/drink.");
             return;
         }
 
         // Display order summary
-        System.out.println("\n========== ORDER SUMMARY ==========" +
+        System.out.println(
+                "\n━━━━━━━━━━━━━━━━━━━━ ORDER SUMMARY ━━━━━━━━━━━━━━━━━━━━" +
                 "\nDate/Time: " + currentOrder.getPrettyDate());
+
         System.out.println("\nItems:");
 
         for (int i = 0; i < currentOrder.getItems().size(); i++) {
@@ -494,9 +456,9 @@ public class UserInterface {
 
         double total = currentOrder.calculateTotal();
         System.out.println(
-                "\n-----------------------------------" +
+                "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
                 "\nTotal: $" + String.format("%.2f", total) +
-                "\n===================================\n");
+                "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
         // Ask for confirmation
         String confirm = ConsoleHelper.promptForString("Confirm order? (Y/N)");

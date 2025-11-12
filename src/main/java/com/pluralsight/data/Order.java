@@ -5,30 +5,31 @@ import com.pluralsight.models.Drink;
 import com.pluralsight.models.GarlicKnots;
 import com.pluralsight.models.Item;
 
-import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    public List<Item> items;
+    private String orderId;
+    private List<Item> items;
     private LocalDateTime date;
 
-    public Order(List<Item> items, LocalDateTime date) {
-        this.items = items;
-        this.date = date;
-    }
-
     public Order() {
+        this.orderId = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         this.items = new ArrayList<>();
         this.date = LocalDateTime.now();
     }
 
-        public List<Item> getItems() {
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public List<Item> getItems() {
         return items;
     }
 
-        public void setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
@@ -41,9 +42,8 @@ public class Order {
     }
 
     //Makes the date a better format
-    public String getPrettyDate(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
-        return date.format(formatter);
+    public String getPrettyDate() {
+        return null;
     }
 
     //Add products to order.
