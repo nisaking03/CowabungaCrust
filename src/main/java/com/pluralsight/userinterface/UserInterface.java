@@ -2,7 +2,6 @@ package com.pluralsight.userinterface;
 import com.pluralsight.data.ItemList;
 import com.pluralsight.data.Order;
 import com.pluralsight.models.*;
-
 import java.util.ArrayList;
 
 public class UserInterface {
@@ -26,7 +25,7 @@ public class UserInterface {
                     newOrder();
                     break;
                 case 0: //exit
-                    return;
+                    System.exit(0); // Force closes program
                 default:
                     System.out.println("Invalid Entry!"); //Error message
                     break;
@@ -303,7 +302,7 @@ public class UserInterface {
             toppings.add(regularTopping);
 
         } else if (regTopPrompt == 0) {
-            return null;
+
         }
 
         return toppings;
@@ -353,7 +352,6 @@ public class UserInterface {
         return sauce;
     }
 
-
     private void signaturePizza() {
         //Lists pizza's
 
@@ -376,7 +374,6 @@ public class UserInterface {
         //§ Select sauces: //list sauces
         //o Would you like the pizza with stuffed crust? //todo boolean
     } //TODO
-
 
     private void addGarlicKnots() {
         String garlicCountPrompt = """
@@ -478,11 +475,7 @@ public class UserInterface {
 
         currentOrder.addItem(drink);
         System.out.println("Drink added to order!");
-
-        currentOrder.addItem(drink);
-        System.out.println("Drink added to order!");
     }
-
 
     private void checkout() {
         if (!currentOrder.isValidOrder()) {
@@ -492,7 +485,7 @@ public class UserInterface {
 
         // Display order summary
         System.out.println("\n========== ORDER SUMMARY ==========" +
-                "\nDate/Time: " + currentOrder.getDate());
+                "\nDate/Time: " + currentOrder.getPrettyDate());
         System.out.println("\nItems:");
 
         for (int i = 0; i < currentOrder.getItems().size(); i++) {
@@ -512,6 +505,7 @@ public class UserInterface {
             System.out.println("Order confirmed!");
             // TODO: ReceiptManager.saveReceipt(currentOrder);
             System.out.println("Receipt saved. Returning to home screen...\n");
+            display();
         } else {
             System.out.println("Order cancelled. Returning to order menu...\n");
         }

@@ -5,6 +5,7 @@ import com.pluralsight.models.Drink;
 import com.pluralsight.models.GarlicKnots;
 import com.pluralsight.models.Item;
 
+import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,12 @@ public class Order {
         this.date = date;
     }
 
+    //Makes the date a better format
+    public String getPrettyDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
+        return date.format(formatter);
+    }
+
     //Add products to order.
     public void addItem(Item item){
         items.add(item);
@@ -57,7 +64,7 @@ public class Order {
         boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
         boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
 
-        //If statements that will determine if our order has a pizza or not.
+        //See if it has a pizza or not.
         if(hasPizza){
             return true;
         } else if (hasGarlicKnots || hasDrink) {
@@ -66,10 +73,5 @@ public class Order {
             return false;
             //add garlic knots or drink
         }
-    }
-
-    @Override
-    public String toString() {
-        return "DATE & TIME: " + date + "|" +"\n" + "Items purchased: " + items + "|";
     }
 }

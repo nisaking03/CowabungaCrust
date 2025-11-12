@@ -29,6 +29,11 @@ public class Drink extends Item {
     public double calculatePrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Drink - Size: " + size + " | Flavor: " + flavor + " | $" + String.format("%.2f", price);
+    }
 }
 //Display drink size options
 //Display drink flavor options
