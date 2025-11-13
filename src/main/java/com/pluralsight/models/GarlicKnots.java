@@ -5,6 +5,10 @@ public class GarlicKnots extends Item {
         super(size, price);
     }
 
+    public GarlicKnots(String size) {
+        super(size, getGarlicKnotPrice(size));
+    }
+
     public static double getGarlicKnotPrice(String size) {
         switch (size) {
             case "16":
@@ -19,10 +23,5 @@ public class GarlicKnots extends Item {
     @Override
     public double calculatePrice() {
         return price;
-    }
-
-    @Override
-    public String toString() {
-        return "Garlic Knots - Count: " + size + " | $" + String.format("%.2f", price);
     }
 }

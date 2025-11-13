@@ -106,10 +106,10 @@ public class Pizza extends Item {
 
     @Override
     public double calculatePrice() {
-        double total = price;
+        double total = Pizza.getBasePrice(size);
 
         for (Topping t : toppingType) {
-            String category = t.getCategory(); // meat, cheese, reg toppings, sauce
+            String category = t.getCategory();
 
             switch (category.toLowerCase()) {
                 case "meat":
@@ -120,10 +120,6 @@ public class Pizza extends Item {
                     break;
             }
         }
-
-        // Add the crust extra cost (handles both crust type and stuffed crust pricing)
-        total += crustType.getExtra();
-
         return total;
     }
 

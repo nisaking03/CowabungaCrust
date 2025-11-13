@@ -20,7 +20,7 @@ public abstract class Item {
     }
 
     public double getPrice() {
-        return price;
+        return calculatePrice();
     }
 
     public void setPrice(double price) {
@@ -31,7 +31,7 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return String.format("%s | $%.2f", size, price);
+        return String.format("%s | $%.2f", size, calculatePrice());
     }
 
 }
