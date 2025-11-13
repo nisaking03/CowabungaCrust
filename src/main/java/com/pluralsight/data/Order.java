@@ -43,7 +43,7 @@ public class Order {
 
     //Makes the date a better format
     public String getPrettyDate() {
-        return null;
+        return date.format(DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"));
     }
 
     //Add products to order.

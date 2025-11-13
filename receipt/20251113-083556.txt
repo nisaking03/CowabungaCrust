@@ -1,0 +1,35 @@
+================================
+      Cowabunga Crust
+================================
+
+Order ID: 20251113-083556
+Date/Time: 11/13/2025 08:35
+--------------------------------
+
+ITEMS ORDERED:
+--------------------------------
+PIZZA (Size: M)
+  Crust: Regular
+  Sauce: Marinara
+  Meats:
+    - Pepperoni (Extra x1)
+  Cheese:
+    - Mozzarella
+  Toppings:
+    - Spinach
+  Price: $19.00
+
+DRINK
+  Size: L
+  Flavor: Lemonade
+  Price: $3.00
+
+GARLIC KNOTS (Count: 16)
+  Price: $1.50
+
+
+--------------------------------
+TOTAL: $16.50
+================================
+Thank you for your order!
+================================

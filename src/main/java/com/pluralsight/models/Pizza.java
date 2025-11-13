@@ -1,5 +1,7 @@
 package com.pluralsight.models;
 
+import com.pluralsight.userinterface.ConsoleHelper;
+
 import java.util.ArrayList;
 
 public class Pizza extends Item {
@@ -134,7 +136,6 @@ public class Pizza extends Item {
                 sauceType +
                 " | Toppings: " + toppingType.toString();
     }
-
 }
 
 

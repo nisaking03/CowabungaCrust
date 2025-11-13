@@ -35,9 +35,3 @@ public class Drink extends Item {
         return "Drink - Size: " + size + " | Flavor: " + flavor + " | $" + String.format("%.2f", price);
     }
 }
-//Display drink size options
-//Display drink flavor options
-//Allow selection of size and flavor
-//Display drink price
-//Confirm to add to order or cancel
-//Option to add another drink

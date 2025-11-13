@@ -1,6 +1,7 @@
 package com.pluralsight.userinterface;
 import com.pluralsight.data.ItemList;
 import com.pluralsight.data.Order;
+import com.pluralsight.data.ReceiptManager;
 import com.pluralsight.models.*;
 import java.util.ArrayList;
 
@@ -112,7 +113,7 @@ public class UserInterface {
                 case 4 -> pizza.sauceType = getSauce();
                 case 0 -> {
                     if (pizza.size != null && pizza.crustType != null && pizza.sauceType != null) {
-                        currentOrder.addItem(pizza);System.out.println("Pizza added to order!");return;
+                        currentOrder.addItem(pizza);System.out.println("\nPizza added to order!");return;
                     } else{
                         System.out.println("\nPlease select size, crust, and sauce before finishing!");
                     }
@@ -449,7 +450,7 @@ public class UserInterface {
                 "\nDate/Time: " + currentOrder.getPrettyDate());
 
         System.out.println("\nItems:");
-
+        // Counts off and numbers items bought
         for (int i = 0; i < currentOrder.getItems().size(); i++) {
             System.out.println((i + 1) + ") " + currentOrder.getItems().get(i));
         }
@@ -464,8 +465,10 @@ public class UserInterface {
         String confirm = ConsoleHelper.promptForString("Confirm order? (Y/N)");
 
         if (confirm.equalsIgnoreCase("y")) {
-            System.out.println("Order confirmed!");
-            // TODO: ReceiptManager.saveReceipt(currentOrder);
+            System.out.println("\nOrder confirmed!");
+            // Create receipt folder and save receipt
+            new ReceiptManager().ensureReceiptFolderExists();
+            ReceiptManager.saveReceipt(currentOrder);
             System.out.println("Receipt saved. Returning to home screen...\n");
             display();
         } else {

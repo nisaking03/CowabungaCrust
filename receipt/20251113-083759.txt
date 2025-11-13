@@ -1,0 +1,27 @@
+================================
+      Cowabunga Crust
+================================
+
+Order ID: 20251113-083759
+Date/Time: 11/13/2025 08:37
+--------------------------------
+
+ITEMS ORDERED:
+--------------------------------
+PIZZA (Size: M)
+  Crust: Regular
+  Sauce: Marinara
+  Meats:
+    - Pepperoni (Extra x1)
+  Cheese:
+    - Mozzarella (Extra x1)
+  Toppings:
+    - Tomatoes
+  Price: $19.60
+
+
+--------------------------------
+TOTAL: $12.00
+================================
+Thank you for your order!
+================================
