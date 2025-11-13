@@ -29,8 +29,11 @@ public class UserInterface {
 
             switch (command) {
                 case 1 -> newOrder();
-                case 0 -> System.exit(0); // Force closes program
-                default -> System.out.println("Invalid Entry!"); //Error message
+                case 0 -> {
+                    System.out.println("It was totally nice meeting you dude! Come back for a slice!");
+                    System.exit(0); // Force closes program
+                }
+                default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢"); //Error message
             }
         }
     }
@@ -59,7 +62,7 @@ public class UserInterface {
                     System.out.println("Peace out!"); //exit
                     return;
                 }
-                default -> System.out.println("Invalid Entry!"); //Error message
+                default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢"); //Error message
             }
         }
     }
@@ -79,7 +82,7 @@ public class UserInterface {
             case 1 -> buildPizza();
             case 2 -> signaturePizza();
             case 0 -> {return;}
-            default -> System.out.println("Invalid Entry!"); //Error message
+            default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢"); //Error message
         }
     }
 
@@ -118,7 +121,7 @@ public class UserInterface {
                         System.out.println("\nPlease select size, crust, and sauce before finishing!");
                     }
                 }
-                default -> System.out.println("Invalid Entry!");
+                default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
             }
         }
     }
@@ -138,7 +141,7 @@ public class UserInterface {
         if (size.equalsIgnoreCase("S") || size.equalsIgnoreCase("M") || size.equalsIgnoreCase("L")) {
             return size.toUpperCase();
         } else {
-            System.out.println("Invalid size! Please try again.");
+            System.out.println("Uh oh! That size doesn’t exist in the multiverse of pizza, bro! 🌀");
             return getPizzaSize();
         }
     }
@@ -160,23 +163,21 @@ public class UserInterface {
         Crust crust = null;
 
         switch (choice) {
-            case 1 -> crust = new Crust("Thin", false, 0.00);
-            case 2 -> crust = new Crust("Regular", false, 0.00);
-            case 3 -> crust = new Crust("Thick", false, 0.00);
-            case 4 -> crust = new Crust("Cauliflower", false, 0.00);
+            case 1 -> crust = new Crust("Thin", false);
+            case 2 -> crust = new Crust("Regular", false);
+            case 3 -> crust = new Crust("Thick", false);
+            case 4 -> crust = new Crust("Cauliflower", false);
             default -> {
-                System.out.println("Invalid choice!");
+                System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
                 return getCrustType();
             }
         }
 
         // NOW ask about stuffed crust
-        System.out.println("\nWould you like stuffed crust? (+$2.50)");
-        boolean stuffedCrust = ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y");
-
-        if (stuffedCrust) {
-            crust.setExtra(crust.getExtra() + 2.50);
-        }
+        System.out.println("\nWould you like stuffed crust?");
+        boolean stuffedCrust;
+        if (ConsoleHelper.promptForString("Enter here (Y/N)").equalsIgnoreCase("y")) stuffedCrust = true;
+        else stuffedCrust = false;
         return crust;
     }
 
@@ -214,6 +215,7 @@ public class UserInterface {
             toppings.add(meatOption);
 
         } else if (meatPrompt == 0) {
+            System.out.println("A pizza with no toppings?! That’s like a skateboard with no wheels, dude! 🛹");
             return toppings;
         }
 
@@ -298,14 +300,14 @@ public class UserInterface {
         Sauce sauce = null;
 
         switch (choice) {
-            case 1 -> sauce = new Sauce("Marinara", 0.00);
-            case 2 -> sauce = new Sauce("Alfredo", 0.00);
-            case 3 -> sauce = new Sauce("Pesto", 0.00);
-            case 4 -> sauce = new Sauce("BBQ", 0.00);
-            case 5 -> sauce = new Sauce("Buffalo", 0.00);
-            case 6 -> sauce = new Sauce("Olive Oil", 0.00);
+            case 1 -> sauce = new Sauce("Marinara");
+            case 2 -> sauce = new Sauce("Alfredo");
+            case 3 -> sauce = new Sauce("Pesto");
+            case 4 -> sauce = new Sauce("BBQ");
+            case 5 -> sauce = new Sauce("Buffalo");
+            case 6 -> sauce = new Sauce("Olive Oil");
             default -> {
-                System.out.println("\nInvalid choice!");
+                System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
                 return getSauce();
             }
         }
@@ -371,7 +373,7 @@ public class UserInterface {
             case 0 -> {
                 return;
             }
-            default -> System.out.println("\nInvalid Entry!");
+            default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
         }
     }
 
@@ -426,7 +428,7 @@ public class UserInterface {
             if (flavorChoice == 0) {
                 return;
             }
-            System.out.println("\nInvalid choice!");
+            System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
             addDrink();
             return;
         }
@@ -440,7 +442,7 @@ public class UserInterface {
 
     private void checkout() {
         if (!currentOrder.isValidOrder()) {
-            System.out.println("\nInvalid order! You must have at least a pizza, or garlic knots/drink.");
+            System.out.println("\nNah dude! You gotta get a pizza, garlic knots, or drink...");
             return;
         }
 

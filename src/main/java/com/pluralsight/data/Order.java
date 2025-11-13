@@ -70,21 +70,4 @@ public class Order {
         // If count > 0, we have at least one valid item
         return validItems > 0;
     }
-//    public boolean isValidOrder(){
-//
-//        //checks if our List of items has an instanceof a Pizza
-//        boolean hasPizza = items.stream().anyMatch(item -> item instanceof Pizza);
-//        boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
-//        boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
-//
-//        //See if it has a pizza or not.
-//        if(hasPizza){
-//            return true;
-//        } else if (hasGarlicKnots || hasDrink) {
-//            return true;
-//        }else {
-//            return false;
-//            //add garlic knots or drink
-//        }
-//    }
 }

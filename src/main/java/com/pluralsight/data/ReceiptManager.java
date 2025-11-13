@@ -22,18 +22,18 @@ public class ReceiptManager {
     }
 
     private static void writeReceiptContent(BufferedWriter bw, Order order) throws IOException {
-        bw.write("================================\n");
-        bw.write("      Cowabunga Crust\n");
-        bw.write("================================\n\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        bw.write("            \uD83D\uDC22 COWABUNGA CRUST CO. \uD83D\uDC22\n");
+        bw.write("         Home of the Hero in a Half Shell!\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
         // Order info
-        bw.write("Order ID: " + order.getOrderId() + "\n");
+        bw.write("Turtle Power Level: " + order.getOrderId() + "\n");
         bw.write("Date/Time: " + order.getPrettyDate() + "\n");
-        bw.write("--------------------------------\n\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
         // Items ordered
-        bw.write("ITEMS ORDERED:\n");
-        bw.write("--------------------------------\n");
+        bw.write("              \uD83C\uDF55 YUMMY DETAILS \uD83C\uDF55\n");
 
         for (Item item : order.getItems()) {
             if (item instanceof Pizza) {
@@ -45,11 +45,18 @@ public class ReceiptManager {
             }
         }
 
-        bw.write("\n--------------------------------\n");
+        bw.write("════════════════════════════════════════════════════\n");
         bw.write(String.format("TOTAL: $%.2f\n", order.calculateTotal()));
-        bw.write("================================\n");
-        bw.write("Thank you for your order!\n");
-        bw.write("================================\n");
+        bw.write("════════════════════════════════════════════════════\n");
+        bw.write("\"Delivering from the sewer lair...\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        bw.write("      \"Wise man say, forgiveness is divine,\"\n");
+        bw.write("     but never pay full price for late pizza!\"\n");
+        bw.write("                - Michelangelo 🥋\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        bw.write("    Thank you for ordering with COWABUNGA CRUST!\n");
+        bw.write("       May your pizza always be extra cheesy!\n");
+        bw.write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     }
 
     // Creates file name for each receipt and saves it----------------------------------------------------
@@ -71,7 +78,7 @@ public class ReceiptManager {
         bw.write("  Crust: " + pizza.getCrust().getName() + "\n");
         //Shows if crust is stuffed or not and adds the extra price
         if (pizza.getCrust().isStuffed()) {
-            bw.write("  Stuffed Crust: Yes (+$" + String.format("%.2f", pizza.getCrust().getExtra()) + ")\n");
+            bw.write("  Stuffed Crust: Yes\n");
         }
         bw.write("  Sauce: " + pizza.getSauceType().getSauceName() + "\n");
 

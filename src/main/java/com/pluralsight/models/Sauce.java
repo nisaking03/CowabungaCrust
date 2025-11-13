@@ -2,11 +2,11 @@ package com.pluralsight.models;
 
 public class Sauce {
     private String sauceName;
-    private double saucePrice;
+//    private double saucePrice;
 
-    public Sauce(String name, double saucePrice) {
+    public Sauce(String name) {
         this.sauceName = name;
-        this.saucePrice = saucePrice;
+//        this.saucePrice = saucePrice;
     }
 
     public String getSauceName() {
@@ -17,13 +17,13 @@ public class Sauce {
         this.sauceName = name;
     }
 
-    public double getSaucePrice() {
-        return saucePrice;
-    }
-
-    public void setSaucePrice(double saucePrice) {
-        this.saucePrice = saucePrice;
-    }
+//    public double getSaucePrice() {
+//        return saucePrice;
+//    }
+//
+//    public void setSaucePrice(double saucePrice) {
+//        this.saucePrice = saucePrice;
+//    }
 
     @Override
     public String toString() {
