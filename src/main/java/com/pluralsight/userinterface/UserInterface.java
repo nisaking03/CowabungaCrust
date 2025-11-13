@@ -1,6 +1,6 @@
 package com.pluralsight.userinterface;
 import com.pluralsight.data.ItemList;
-import com.pluralsight.data.Order;
+import com.pluralsight.models.Order;
 import com.pluralsight.data.ReceiptManager;
 import com.pluralsight.models.*;
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class UserInterface {
                 case 3 -> addGarlicKnots();
                 case 4 -> checkout();
                 case 0 -> {
-                    System.out.println("Peace out!"); //exit
+                    System.out.println("\nPeace out!"); //exit
                     return;
                 }
                 default -> System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢"); //Error message
@@ -104,13 +104,7 @@ public class UserInterface {
             int command = ConsoleHelper.promptForInt("Enter here");
 
             switch (command) {
-                case 1 -> {
-                    pizza.size = getPizzaSize();
-                    // Set base price after selecting size
-                    if (pizza.size != null) {
-                        pizza.price = Pizza.getBasePrice(pizza.size);
-                    }
-                }
+                case 1 -> pizza.size = getPizzaSize();
                 case 2 -> pizza.crustType = getCrustType();
                 case 3 -> pizza.toppingType = getToppings();
                 case 4 -> pizza.sauceType = getSauce();
@@ -129,7 +123,8 @@ public class UserInterface {
     private String getPizzaSize() {
         String sizePrompt = """
                 
-                Enter a size:
+                How hungry are ya?
+                
                  S - 8.50
                  M - 12.00
                  L - 16.50
@@ -150,7 +145,8 @@ public class UserInterface {
         // Has the crust prompt
         String crustPrompt = """
                 
-                What crust type
+                Time to crust it up!
+                
                  1) Thin
                  2) Regular
                  3) Thick
@@ -187,7 +183,8 @@ public class UserInterface {
         // MEAT TOPPING
         String meatTopping = """
                 
-                What meat topping?
+                Choose one of these lovely toppings
+                
                 1) Pepperoni
                 2) Sausage
                 3) Ham
@@ -222,7 +219,8 @@ public class UserInterface {
         // CHEESE TOPPING
         String cheeseTopping = """
                 
-                What cheese?
+                Let's make it cheesy!
+                
                 1) Mozzarella
                 2) Parmesan
                 3) Ricotta
@@ -254,7 +252,8 @@ public class UserInterface {
         // REGULAR TOPPINGS
         String regTopping = """
                 
-                What other toppings? (Free)
+                Want other toppings? *It's also free*
+                
                 1) Onions
                 2) Mushrooms
                 3) Bell Peppers
@@ -285,7 +284,8 @@ public class UserInterface {
     private Sauce getSauce() {
         String sauceList = """
                 
-                What sauce? (Free)
+                Let's sauce up your pizza! pssst *I'ts free*
+                
                 1) Marinara
                 2) Alfredo
                 3) Pesto
@@ -315,34 +315,155 @@ public class UserInterface {
     }
 
     private void signaturePizza() {
-        //Lists pizza's
+        String signatureMenu = """
+            
+            Here are the famous pizza's!
+            
+            1) Michelangelo Melt - L, Thick Crust, Marinara
+               Ham, Bacon, Mozzarella, Parmesan, Pineapple, Olives, Mushrooms - $17.50
+            
+            2) Donnie's Tech Supreme - M, Regular Crust, Pesto
+               Chicken, Meatball, Ricotta, Goat Cheese, Spinach, Basil, Tomatoes - $16.50
+            
+            3) Raph's Rage Slice - L, Thick Crust, Buffalo
+               Pepperoni, Sausage, Bacon, Buffalo Cheese, Onions, Bell Peppers - $16.50
+            
+            4) Leo's Leader Pie - L, Thick Crust, Marinara
+               Pepperoni, Sausage, Mozzarella, Onions, Bell Peppers, Basil - $16.00
+            
+            0) Back
+            """;
 
+        System.out.print(signatureMenu);
+        int choice = ConsoleHelper.promptForInt("Enter here");
 
-        //Prompt for any wanted changes
-        System.out.println("Would you like to change anything?");
+        Pizza selectedPizza = null;
 
+        switch (choice) {
+            case 1 -> {
+                selectedPizza = new MichelangeloMelt();
+                System.out.println("\n🍕 You selected: Michelangelo Melt!");
+            }
+            case 2 -> {
+                selectedPizza = new LeoLeaderPie();
+                System.out.println("\n🍕 You selected: Leo's Leader Pie!");
+            }
+            case 3 -> {
+                selectedPizza = new RaphRageSlice();
+                System.out.println("\n🍕 You selected: Raph's Rage Slice!");
+            }
+            case 4 -> {
+                selectedPizza = new DonnieTechSupreme();
+                System.out.println("\n🍕 You selected: Donnie's Tech Supreme!");
+            }
+            case 0 -> {
+                return;  // Go back
+            }
+            default -> {
+                System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
+                signaturePizza();  // Try again
+                return;
+            }
+        }
+        // ask if they want to customize it
+        if (selectedPizza != null) {
+            askToCustomizeOrOrder(selectedPizza);
+        }
+    }
 
-        //Prompts for changes
-        String sizePrompt = ConsoleHelper.promptForString("Enter a size (S, M, L)");
-        //Pizza size
+    //Ask if user wants to customize or just order
+    private void askToCustomizeOrOrder(Pizza pizza) {
+        String customizeMenu = """
+            
+            What do ya wanna do bro?
+            
+            1) Order this pizza as-is
+            2) Customize this pizza
+            0) Back to signature pizzas
+            """;
 
-        String toppingPrompt = ConsoleHelper.promptForString("List toppings?");
-        //o Toppings: //list toppings - the user should be able to add extras of each topping
-        //§ Meat: //list meats
-        //§ Cheese: //list cheese
+        System.out.print(customizeMenu);
+        int choice = ConsoleHelper.promptForInt("Enter here");
 
-        String extrasPrompt = ConsoleHelper.promptForString("Would you like to add more?"); //todo boolean
-        //§ Prompt for extra toppings: //list toppings already chosen
-        //§ Select sauces: //list sauces
-        //o Would you like the pizza with stuffed crust? //todo boolean
-    } //TODO
+        switch (choice) {
+            case 1 -> {
+                // get it the way it's make originally
+                currentOrder.addItem(pizza);
+                System.out.println("\n" + pizza + "\nAdded to order!");
+            }
+            case 2 -> {
+                // change up pizza
+                customizeSignaturePizza(pizza);
+            }
+            case 0 -> {
+                signaturePizza();  // Go back to signature menu
+            }
+            default -> {
+                System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
+                askToCustomizeOrOrder(pizza);
+            }
+        }
+    }
+
+    private void customizeSignaturePizza(Pizza pizza) {
+        String customizeMenu = """
+            
+            Customize Signature Pizza:
+            
+            1) Change size
+            2) Change crust
+            3) Add extra toppings
+            4) Done customizing
+            0) Cancel
+            """;
+
+        System.out.print(customizeMenu);
+        int choice = ConsoleHelper.promptForInt("Enter here");
+
+        switch (choice) {
+            case 1 -> {
+                pizza.size = getPizzaSize();
+                System.out.println("Size changed to: " + pizza.size);
+                customizeSignaturePizza(pizza);
+            }
+            case 2 -> {
+                pizza.crustType = getCrustType();
+                System.out.println("Crust changed!");
+                customizeSignaturePizza(pizza);
+            }
+            case 3 -> {
+                // Add more toppings
+                ArrayList<Topping> moreTop = getToppings();
+                if (moreTop != null) {
+                    for (Topping t : moreTop) {
+                        pizza.addTopping(t);
+                    }
+                    System.out.println("Extra toppings added!");
+                }
+                customizeSignaturePizza(pizza);
+            }
+            case 4 -> {
+                currentOrder.addItem(pizza);
+                System.out.println("\n" + pizza + "\nAdded to order!");
+            }
+            case 0 -> {
+                System.out.println("Customization cancelled.");
+                signaturePizza();
+            }
+            default -> {
+                System.out.println("Whoa, numbers are hard sometimes... try typing that again, my dude! 🔢");
+                customizeSignaturePizza(pizza);
+            }
+        }
+    }
 
     private void addGarlicKnots() {
         String garlicCountPrompt = """
                 
-                What count would you like?
-                1) 16 count
-                2) 32 count
+                What count do ya want?
+                
+                1) 16 count - 1.50
+                2) 32 count - 3.00
                 0) Back
                 """;
 
@@ -352,22 +473,14 @@ public class UserInterface {
         switch (garlicPrompt) {
             case 1 -> {
                 // Actually create the object and add to order
-                String size = ItemList.garlicKnots[0];  // "16"
-                double price = GarlicKnots.getGarlicKnotPrice(size);
-
-                GarlicKnots knots = new GarlicKnots(size, price);
-                currentOrder.addItem(knots);git
-
+                GarlicKnots knots = new GarlicKnots("16");  // calculates price
+                currentOrder.addItem(knots);
                 System.out.println("\nGarlic knots (16 count) added to order!");
             }
             case 2 -> {
                 // Actually create the object and add to order
-                String size = ItemList.garlicKnots[1];  // "32"
-                double price = GarlicKnots.getGarlicKnotPrice(size);
-
-                GarlicKnots knots = new GarlicKnots(size, price);
+                GarlicKnots knots = new GarlicKnots("32");  // calculates price
                 currentOrder.addItem(knots);
-
                 System.out.println("\nGarlic knots (32 count) added to order!");
             }
             case 0 -> {
@@ -381,7 +494,8 @@ public class UserInterface {
         // Prompt for drink size first
         String drinkSizePrompt = """
             
-            What size?
+            Feelin' thirsty?
+            
             S - $2.00
             M - $2.50
             L - $3.00
@@ -394,14 +508,14 @@ public class UserInterface {
         String drinkSize;
 
         if (sizeChoice.equalsIgnoreCase("S") || sizeChoice.equalsIgnoreCase("M") ||
-                sizeChoice.equalsIgnoreCase("L")) {
+            sizeChoice.equalsIgnoreCase("L")) {
             drinkSize = sizeChoice.toUpperCase();
 
         } else if (sizeChoice.equalsIgnoreCase("0")) {
             return;
 
         } else {
-            System.out.println("\nInvalid choice!");
+            System.out.println("\nUh oh! That size doesn’t exist in the multiverse of bevs, bro! 🌀");
             addDrink();
             return;
         }
@@ -409,7 +523,8 @@ public class UserInterface {
         // Now show flavor options
         String flavorPrompt = """
             
-            What flavor?
+            Gotta flavor n' mind?
+            
             1) Coke
             2) Pepsi
             3) Sprite
@@ -434,9 +549,9 @@ public class UserInterface {
         }
 
         String drinkFlavor = ItemList.drinkFlavors[flavorChoice - 1];
-        Drink drink = new Drink(drinkSize, drinkFlavor);
-
+        Drink drink = new Drink(drinkSize, drinkFlavor);  // calculates price
         currentOrder.addItem(drink);
+
         System.out.println("\nDrink added to order!");
     }
 

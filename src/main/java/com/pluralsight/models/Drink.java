@@ -3,11 +3,6 @@ package com.pluralsight.models;
 public class Drink extends Item {
     private String flavor;
 
-    public Drink(String size, double price, String flavor) {
-        super(size, price);
-        this.flavor = flavor;
-    }
-
     public Drink(String size, String flavor) {
         super(size, getDrinkPrice(size));
         this.flavor = flavor;
@@ -37,6 +32,6 @@ public class Drink extends Item {
 
     @Override
     public String toString() {
-        return "Drink - Size: " + size + " | Flavor: " + flavor + " | $" + String.format("%.2f", price);
+        return "Drink - Size: " + size + " | Flavor: " + flavor + " | $" + String.format("%.2f", calculatePrice());
     }
 }

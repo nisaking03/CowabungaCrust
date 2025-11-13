@@ -1,9 +1,4 @@
-package com.pluralsight.data;
-
-import com.pluralsight.models.Pizza;
-import com.pluralsight.models.Drink;
-import com.pluralsight.models.GarlicKnots;
-import com.pluralsight.models.Item;
+package com.pluralsight.models;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

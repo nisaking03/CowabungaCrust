@@ -132,7 +132,8 @@ public class Pizza extends Item {
                 size + " |  Crust: " +
                 crustType + " | Sauce: " +
                 sauceType +
-                " | Toppings: " + toppingType.toString();
+                " | Toppings: " + toppingType.toString() +
+                " | " + calculatePrice();
     }
 }
 

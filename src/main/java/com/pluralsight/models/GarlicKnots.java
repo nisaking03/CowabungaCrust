@@ -1,9 +1,6 @@
 package com.pluralsight.models;
 
 public class GarlicKnots extends Item {
-    public GarlicKnots(String size, double price) {
-        super(size, price);
-    }
 
     public GarlicKnots(String size) {
         super(size, getGarlicKnotPrice(size));
@@ -23,5 +20,10 @@ public class GarlicKnots extends Item {
     @Override
     public double calculatePrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Garlic Knots - Count: " + size + " | $" + String.format("%.2f", calculatePrice());
     }
 }

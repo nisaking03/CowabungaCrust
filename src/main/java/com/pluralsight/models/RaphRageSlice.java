@@ -1,12 +1,18 @@
 package com.pluralsight.models;
 
 public class RaphRageSlice extends Pizza{
+
+    public RaphRageSlice(){
+        super("L", 16.50, new Crust("Thick", false),
+                new Sauce("Buffalo"));
+
+        this.addTopping(new Topping("Pepperoni", "meat"));
+        this.addTopping(new Topping("Sausage", "meat"));
+        this.addTopping(new Topping("Bacon", "meat"));
+
+        this.addTopping(new Topping("Buffalo", "cheese"));
+
+        this.addTopping(new Topping("Onions", "meat"));
+        this.addTopping(new Topping("Bell Peppers", "meat"));
+    }
 }
-//16.50
-//        "Thick",                              // Crust
-//        "L",                                  // Size
-//        "Pepperoni, Sausage, Bacon",          // Meats
-//        "Buffalo",                            // Cheese (using spicy sauce style)
-//        "Buffalo",                            // Sauce
-//        "Onions, Jalapeños, Bell Peppers",    // Regular Toppings (you can add 'Jalapeños' manually)
-//        "Spicy, strong, and a little reckless—just like Raph!" // Description

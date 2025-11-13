@@ -1,0 +1,66 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            🐢 COWABUNGA CRUST CO. 🐢
+         Home of the Hero in a Half Shell!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Turtle Power Level: 20251113-162544
+Date/Time: 11/13/2025 16:25
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              🍕 YUMMY DETAILS 🍕
+PIZZA (Size: L)
+  Crust: Thick
+  Stuffed Crust: Yes
+  Sauce: Marinara
+  Meats:
+    - Ham
+    - Bacon
+  Cheese:
+    - Mozzarella
+    - Parmesan
+  Price: $27.00
+
+PIZZA (Size: L)
+  Crust: Thick
+  Sauce: Marinara
+  Meats:
+    - Pepperoni
+    - Sausage
+  Cheese:
+    - Mozzarella
+  Price: $24.75
+
+PIZZA (Size: L)
+  Crust: Thick
+  Sauce: Buffalo
+  Meats:
+    - Pepperoni
+    - Sausage
+    - Bacon
+    - Onions
+    - Bell Peppers
+  Cheese:
+    - Buffalo
+  Price: $33.75
+
+PIZZA (Size: M)
+  Crust: Regular
+  Sauce: Pesto
+  Meats:
+    - Chicken
+    - Meatball
+  Cheese:
+    - Ricotta
+    - Goat Cheese
+  Price: $19.00
+
+════════════════════════════════════════════════════
+TOTAL: $104.50
+════════════════════════════════════════════════════
+"Delivering from the sewer lair...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      "Wise man say, forgiveness is divine,"
+     but never pay full price for late pizza!"
+                - Michelangelo 🥋
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Thank you for ordering with COWABUNGA CRUST!
+       May your pizza always be extra cheesy!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
