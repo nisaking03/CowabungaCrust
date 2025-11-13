@@ -8,6 +8,11 @@ public class Drink extends Item {
         this.flavor = flavor;
     }
 
+    public Drink(String size, String flavor) {
+        super(size, getDrinkPrice(size));
+        this.flavor = flavor;
+    }
+
     public static double getDrinkPrice(String size) {
         switch (size) {
             case "S":

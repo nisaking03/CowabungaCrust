@@ -356,7 +356,7 @@ public class UserInterface {
                 double price = GarlicKnots.getGarlicKnotPrice(size);
 
                 GarlicKnots knots = new GarlicKnots(size, price);
-                currentOrder.addItem(knots);
+                currentOrder.addItem(knots);git
 
                 System.out.println("\nGarlic knots (16 count) added to order!");
             }
@@ -434,7 +434,7 @@ public class UserInterface {
         }
 
         String drinkFlavor = ItemList.drinkFlavors[flavorChoice - 1];
-        Drink drink = new Drink(drinkSize, Drink.getDrinkPrice(drinkSize), drinkFlavor);
+        Drink drink = new Drink(drinkSize, drinkFlavor);
 
         currentOrder.addItem(drink);
         System.out.println("\nDrink added to order!");

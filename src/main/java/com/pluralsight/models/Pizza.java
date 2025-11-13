@@ -16,7 +16,10 @@ public class Pizza extends Item {
         this.sauceType = sauceType;
     }
 
-    public Pizza(){};
+    public Pizza() {
+        // Initialize the ArrayList
+        this.toppingType = new ArrayList<>();
+    };
 
     public Crust getCrust() {
         return crustType;
