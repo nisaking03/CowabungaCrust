@@ -4,13 +4,13 @@ A Teenage Mutant Ninja Turtle themed Java-based console application for ordering
 
 ## Features
 
-**Interactive Menu System** — Navigate through hierarchical menus with proper error handling
-**Custom Pizza Builder** — Choose size, crust, toppings, and sauce to create your own pizza
-**Signature Pizzas** — Pre-made pizza options with customization available
-**Dynamic Pricing** — Prices calculate based on size and topping selections
-**Order Management** — Add multiple items, view order summary, and calculate totals
-**Receipt Generation** — Saves completed orders to text files in a receipt/ folder
-**Input Validation** — Handles invalid inputs gracefully with re-prompts
+- **Interactive Menu System** — Navigate through hierarchical menus with proper error handling
+- **Custom Pizza Builder** — Choose size, crust, toppings, and sauce to create your own pizza
+- **Signature Pizzas** — Pre-made pizza options with customization available
+- **Dynamic Pricing** — Prices calculate based on size and topping selections
+- **Order Management** — Add multiple items, view order summary, and calculate totals
+- **Receipt Generation** — Saves completed orders to text files in a receipt/ folder
+- **Input Validation** — Handles invalid inputs gracefully with re-prompts
 
 ## Project Structure
 <img width="1279" height="881" alt="Screenshot 2025-11-13 175528" src="https://github.com/user-attachments/assets/d3dff0d0-5a23-4de2-bbd7-65304100c2e2" />
