@@ -37,7 +37,8 @@ Once in an order, you can:
 - Choose sauce
 - Confirm completion
 
-### Signature Pizzas
+# Signature Pizzas
+<img width="711" height="545" alt="Screenshot 2025-11-13 184758" src="https://github.com/user-attachments/assets/7a40e533-83fe-4ed3-abdf-656940638b31" />
 
 - Michelangelo Melt ($17.50) — L, Thick, Marinara
 - Leo's Leader Pie ($16.00) — L, Thick, Marinara
@@ -46,7 +47,8 @@ Once in an order, you can:
 
 All can be customized after selection.
 
-### Checkout
+# Checkout
+<img width="519" height="290" alt="Screenshot 2025-11-13 184913" src="https://github.com/user-attachments/assets/0ee556d0-d08f-4537-b68e-9ae22c508a74" />
 
 - Review all items in your order
 - See itemized breakdown
@@ -89,6 +91,9 @@ This project demonstrates:
 - Static Variables — Shared currentOrder across methods
 
 # Struggles & Solutions (From Development)
+<img width="759" height="585" alt="Screenshot 2025-11-13 185043" src="https://github.com/user-attachments/assets/e0000276-99f0-46c6-963e-f5f211330872" />
+<img width="757" height="578" alt="Screenshot 2025-11-13 185059" src="https://github.com/user-attachments/assets/a6855d10-db63-48a9-883e-2b8f1098e077" />
+<img width="573" height="469" alt="Screenshot 2025-11-13 185113" src="https://github.com/user-attachments/assets/eb083662-ee69-42b7-8293-6929561935e5" />
 
 **Struggle #1**: Price Calculations
 - Problem: Pizza pricing is complex and varies by size and toppings
