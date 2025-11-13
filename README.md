@@ -26,7 +26,8 @@ Once in an order, you can:
 4) Checkout — Review and confirm order
 0) Cancel Order — Return to main menu
 
-### Building a Custom Pizza
+# Building a Custom Pizza
+<img width="256" height="266" alt="Screenshot 2025-11-13 184632" src="https://github.com/user-attachments/assets/069f489b-06d7-41ec-b439-7ce1a8d78d30" />
 
 - Choose size (S, M, or L)
 - Choose crust type (Thin, Regular, Thick, Cauliflower)
