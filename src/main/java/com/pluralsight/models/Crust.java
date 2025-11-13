@@ -16,10 +16,10 @@ public class Crust {
         return name;
     }
 
+
     public boolean isStuffed() {
         return isStuffed;
     }
-
 
     public double getExtra() {
         return extra;

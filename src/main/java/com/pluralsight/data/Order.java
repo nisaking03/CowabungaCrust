@@ -58,20 +58,33 @@ public class Order {
 
     //Sees if it is a valid order
     public boolean isValidOrder(){
+        // Runs the stream once instead of three times
+        // filter() keeps only items that match the condition
+        // count() returns how many items passed the filter
+        long validItems = items.stream()
+                .filter(item -> item instanceof Pizza ||           // Keep pizzas
+                                item instanceof GarlicKnots ||     // Keep garlic knots
+                                item instanceof Drink)             // Keep drinks
+                .count();                                          // Count how many passed
 
-        //checks if our List of items has an instanceof a Pizza
-        boolean hasPizza = items.stream().anyMatch(item -> item instanceof Pizza);
-        boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
-        boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
-
-        //See if it has a pizza or not.
-        if(hasPizza){
-            return true;
-        } else if (hasGarlicKnots || hasDrink) {
-            return true;
-        }else {
-            return false;
-            //add garlic knots or drink
-        }
+        // If count > 0, we have at least one valid item
+        return validItems > 0;
     }
+//    public boolean isValidOrder(){
+//
+//        //checks if our List of items has an instanceof a Pizza
+//        boolean hasPizza = items.stream().anyMatch(item -> item instanceof Pizza);
+//        boolean hasGarlicKnots = items.stream().anyMatch(item -> item instanceof GarlicKnots);
+//        boolean hasDrink = items.stream().anyMatch(item -> item instanceof Drink);
+//
+//        //See if it has a pizza or not.
+//        if(hasPizza){
+//            return true;
+//        } else if (hasGarlicKnots || hasDrink) {
+//            return true;
+//        }else {
+//            return false;
+//            //add garlic knots or drink
+//        }
+//    }
 }

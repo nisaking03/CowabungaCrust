@@ -12,12 +12,10 @@ public class ItemList {
     public static final String[] meats = {"Pepperoni", "Sausage", "Ham", "Bacon", "Chicken", "Meatball"
     };
 
-    public static final String[] cheese = {"Mozzarella", "Parmesan ", "Ricotta ", "Goat Cheese ", "Buffalo"
-    };
+    public static final String[] cheese = {"Mozzarella", "Parmesan", "Ricotta", "Goat Cheese", "Buffalo"};
 
     public static final String[] regularToppings = {"Onions", "Mushrooms", "Bell Peppers", "Olives",
-            "Tomatoes", "Spinach", "Basil ", "Pineapple", "Anchovies"
-    };
+            "Tomatoes", "Spinach", "Basil", "Pineapple", "Anchovies"};
 
     public static final String[] sauces = {"Marinara", "Alfredo", "Pesto", "BBQ", "Buffalo", "Olive Oil"
     };

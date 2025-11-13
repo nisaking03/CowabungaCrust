@@ -199,7 +199,7 @@ public class UserInterface {
         System.out.print(meatTopping);
         int meatPrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (meatPrompt >= 1 && meatPrompt <= 5) {
+        if (meatPrompt >= 1 && meatPrompt <= 6) {
             // Get meat name from array (subtract 1 because arrays start from 0)
             String meatName = ItemList.meats[meatPrompt - 1];
 
@@ -210,11 +210,11 @@ public class UserInterface {
             int extraCount = extraMeat ? 1 : 0;
 
             // Create topping object with extras
-            Topping meatTopping2 = new Topping(meatName, "meat", extraCount);
-            toppings.add(meatTopping2);
+            Topping meatOption = new Topping(meatName, "meat", extraCount);
+            toppings.add(meatOption);
 
         } else if (meatPrompt == 0) {
-            return null;
+            return toppings;
         }
 
         // CHEESE TOPPING
@@ -231,7 +231,7 @@ public class UserInterface {
         System.out.print(cheeseTopping);
         int cheesePrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (cheesePrompt >= 1 && cheesePrompt <= 4) {
+        if (cheesePrompt >= 1 && cheesePrompt <= 5) {
             // Get cheese name from array (subtract 1 because arrays start from 0)
             String cheeseName = ItemList.cheese[cheesePrompt - 1];
 
@@ -246,7 +246,7 @@ public class UserInterface {
             toppings.add(cheeseTopping2); // Add to toppings list
 
         } else if (cheesePrompt == 0) {
-            return null;
+            return toppings;
         }
 
         // REGULAR TOPPINGS
@@ -268,13 +268,13 @@ public class UserInterface {
         System.out.print(regTopping);
         int regTopPrompt = ConsoleHelper.promptForInt("Enter here");
 
-        if (regTopPrompt >= 1 && regTopPrompt <= 8) {
+        if (regTopPrompt >= 1 && regTopPrompt <= ItemList.regularToppings.length) {
             String regToppingName = ItemList.regularToppings[regTopPrompt - 1];
             Topping regularTopping = new Topping(regToppingName, "regular");
             toppings.add(regularTopping);
 
         } else if (regTopPrompt == 0) {
-
+            return toppings;
         }
 
         return toppings;
