@@ -16,7 +16,9 @@ A Teenage Mutant Ninja Turtle themed Java-based console application for ordering
 <img width="1279" height="881" alt="Screenshot 2025-11-13 175528" src="https://github.com/user-attachments/assets/d3dff0d0-5a23-4de2-bbd7-65304100c2e2" />
 
 ## Order Menu
+
 Once in an order, you can:
+<img width="577" height="351" alt="Screenshot 2025-11-13 184250" src="https://github.com/user-attachments/assets/f9f4ba8b-6f76-4333-ba72-c6db6bd5cb83" />
 
 1) Add Pizza — Build custom or choose signature
 2) Add Drink — Pick size and flavor
