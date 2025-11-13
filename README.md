@@ -26,29 +26,29 @@ Once in an order, you can:
 
 ### Building a Custom Pizza
 
-Choose size (S, M, or L)
-Choose crust type (Thin, Regular, Thick, Cauliflower)
-Choose meat toppings (optional extras available)
-Choose cheese toppings (optional extras available)
-Choose regular toppings (free!)
-Choose sauce
-Confirm completion
+- Choose size (S, M, or L)
+- Choose crust type (Thin, Regular, Thick, Cauliflower)
+- Choose meat toppings (optional extras available)
+- Choose cheese toppings (optional extras available)
+- Choose regular toppings (free!)
+- Choose sauce
+- Confirm completion
 
 ### Signature Pizzas
 
-Michelangelo Melt ($17.50) — L, Thick, Marinara
-Leo's Leader Pie ($16.00) — L, Thick, Marinara
-Raph's Rage Slice ($16.50) — L, Thick, Buffalo
-Donnie's Tech Supreme ($16.50) — M, Regular, Pesto
+- Michelangelo Melt ($17.50) — L, Thick, Marinara
+- Leo's Leader Pie ($16.00) — L, Thick, Marinara
+- Raph's Rage Slice ($16.50) — L, Thick, Buffalo
+- Donnie's Tech Supreme ($16.50) — M, Regular, Pesto
 
 All can be customized after selection.
 
 ### Checkout
 
-Review all items in your order
-See itemized breakdown
-View total price
-Confirm to save receipt or cancel
+- Review all items in your order
+- See itemized breakdown
+- View total price
+- Confirm to save receipt or cancel
 
 ## Key Classes
 
@@ -88,16 +88,16 @@ This project demonstrates:
 # Struggles & Solutions (From Development)
 
 **Struggle #1**: Price Calculations
-Problem: Pizza pricing is complex and varies by size and toppings
-Solution: Break into separate methods (getMeatPrice(), getCheesePrice())
+- Problem: Pizza pricing is complex and varies by size and toppings
+- Solution: Break into separate methods (getMeatPrice(), getCheesePrice())
 
 **Struggle #2**: Different Item Types
-Problem: Pizza, Drink, and GarlicKnots are different but similar
-Solution: Abstract base class Item with polymorphic calculatePrice()
+- Problem: Pizza, Drink, and GarlicKnots are different but similar
+- Solution: Abstract base class Item with polymorphic calculatePrice()
 
 **Struggle #3**: Managing Current Order
-Problem: All menu methods need access to the same order
-Solution: Static currentOrder variable (appropriate for this single-user console app)
+- Problem: All menu methods need access to the same order
+- Solution: Static currentOrder variable (appropriate for this single-user console app)
 
 # Problem-Solving
 - Hierarchical Menus — Using return statements for proper flow
