@@ -539,6 +539,7 @@ public class UserInterface {
         System.out.print(flavorPrompt);
         int flavorChoice = ConsoleHelper.promptForInt("Enter here");
 
+        // Validate that the user's flavor selection is within the valid range
         if (flavorChoice < 1 || flavorChoice > ItemList.drinkFlavors.length) {
             if (flavorChoice == 0) {
                 return;
